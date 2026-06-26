@@ -70,7 +70,7 @@ const HeroSection = () => {
         <div className="animate-on-scroll">
           <Link
             to="/discutons"
-            className="bg-[#941101] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 text-sm sm:text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2 group border border-[#7a0d01]"
+            className="bg-elegant-black text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 text-sm sm:text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2 group border border-gray-800"
           >
             <span>Discutons de votre projet</span>
             <svg 
