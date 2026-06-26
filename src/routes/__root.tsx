@@ -76,21 +76,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "viewport", content: "width=device-width, initial-scale=0.8, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" },
+      { name: "theme-color", content: "#0a0a0a" },
+      { name: "color-scheme", content: "light" },
+      { title: "L'Intendant - Conciergerie Gestion Locative Courte Durée Toulouse" },
+      { name: "description", content: "L'Intendant, conciergerie toulousaine spécialisée en gestion locative courte durée. Maximisez vos revenus Airbnb avec notre expertise locale. Devis gratuit." },
+      { name: "keywords", content: "gestion locative courte durée, conciergerie Toulouse, Airbnb, location saisonnière, yield management, gestion Airbnb Toulouse, conciergerie location courte durée" },
+      { name: "author", content: "L'Intendant" },
+      { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "L'Intendant Toulouse" },
+      { property: "og:locale", content: "fr_FR" },
+      { property: "og:title", content: "L'Intendant - Conciergerie Gestion Locative Courte Durée Toulouse" },
+      { property: "og:description", content: "Conciergerie toulousaine spécialisée en gestion locative courte durée. Maximisez vos revenus Airbnb avec notre expertise locale." },
+      { property: "og:image", content: "/__l5e/assets-v1/116d3a68-7dad-4992-8d99-e0fa2abc2d06/logo-big.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "L'Intendant - Conciergerie Gestion Locative Courte Durée Toulouse" },
+      { name: "twitter:description", content: "Conciergerie toulousaine spécialisée en gestion locative courte durée. Maximisez vos revenus Airbnb." },
+      { name: "twitter:image", content: "/__l5e/assets-v1/116d3a68-7dad-4992-8d99-e0fa2abc2d06/logo-big.png" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/__l5e/assets-v1/c304b4f6-f6ff-4dc6-b32f-e2d3b86f5cb8/logo.png" },
+      { rel: "apple-touch-icon", href: "/__l5e/assets-v1/c304b4f6-f6ff-4dc6-b32f-e2d3b86f5cb8/logo.png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <HeadContent />
       </head>
@@ -112,6 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
