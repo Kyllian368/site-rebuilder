@@ -583,7 +583,7 @@ const BlogPost = () => {
       }
     };
     
-    return articles[articleId] || null;
+    return (articles as Record<string, any>)[articleId] || null;
   };
 
   const article = getArticle(id || '');
@@ -674,7 +674,7 @@ const BlogPost = () => {
                 Questions Fréquentes
               </h2>
               <div className="space-y-6">
-                {article.faq.map((faq, index) => (
+                {article.faq.map((faq: { question: string; answer: string }, index: number) => (
                   <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                     <h3 className="font-semibold text-lg text-elegant-black mb-3">
                       {faq.question}
