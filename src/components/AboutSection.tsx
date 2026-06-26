@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ASSETS } from '@/lib/intendant-assets';
 
 const AboutSection = () => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const AboutSection = () => {
           {/* Image */}
           <div className="animate-on-scroll">
             <img 
-              src="/Capitile Opéra Toulouse noir et blanc.jpeg"
+              src={ASSETS.capitoleBW}
               alt="Capitole de Toulouse - Opéra architecture historique emblématique"
               className="w-full h-auto rounded-sm shadow-lg"
               loading="lazy"
