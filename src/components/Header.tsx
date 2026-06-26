@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouterState, useNavigate } from '@tanstack/react-router';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,42 +17,36 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    // Fermer le menu mobile
     setIsMobileMenuOpen(false);
-    
-    // Si on est sur la page d'accueil, scroll vers la section
-    if (location.pathname === '/') {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (pathname === '/') {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Si on est sur une autre page, rediriger vers l'accueil puis scroll vers la section
-      navigate('/', { state: { scrollTo: id } });
+      navigate({ to: '/', hash: id });
     }
   };
 
   const handleLogoClick = () => {
     setIsMobileMenuOpen(false);
-    if (location.pathname === '/') {
-      // Si on est déjà sur l'accueil, scroll vers le haut
+    if (pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Si on est sur une autre page, rediriger vers l'accueil
-      navigate('/');
+      navigate({ to: '/' });
     }
   };
 
   const handleBlogClick = () => {
     setIsMobileMenuOpen(false);
-    if (location.pathname === '/blog') {
-      // Si on est déjà sur la page blog, juste scroll en haut
+    if (pathname === '/blog') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Approche plus directe avec window.location
-      window.location.href = '/blog';
+      navigate({ to: '/blog' });
     }
   };
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
