@@ -11,7 +11,10 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 
+import { googleReviewsQueryOptions } from '@/components/TestimonialsSection';
+
 export const Route = createFileRoute('/')({
+  loader: ({ context }) => context.queryClient.ensureQueryData(googleReviewsQueryOptions),
   component: Index,
 });
 
