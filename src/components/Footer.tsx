@@ -1,12 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 const Footer = () => {
-  const handleCGVClick = (e) => {
-    e.preventDefault();
-    // Approche plus directe avec window.location
-    window.location.href = '/cgv';
-  };
+
 
   return (
     <footer className="bg-elegant-black text-white py-12">
