@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
+import { Route as DiscutonsRouteImport } from './routes/discutons'
 import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -21,6 +22,11 @@ const PolitiqueConfidentialiteRoute =
     path: '/politique-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
+const DiscutonsRoute = DiscutonsRouteImport.update({
+  id: '/discutons',
+  path: '/discutons',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CgvRoute = CgvRouteImport.update({
   id: '/cgv',
   path: '/cgv',
@@ -45,6 +51,7 @@ const BlogIdRoute = BlogIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
@@ -52,6 +59,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog': typeof BlogIndexRoute
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
@@ -69,15 +78,23 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cgv'
+    | '/discutons'
     | '/politique-confidentialite'
     | '/blog/$id'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cgv' | '/politique-confidentialite' | '/blog/$id' | '/blog'
+  to:
+    | '/'
+    | '/cgv'
+    | '/discutons'
+    | '/politique-confidentialite'
+    | '/blog/$id'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/cgv'
+    | '/discutons'
     | '/politique-confidentialite'
     | '/blog/$id'
     | '/blog/'
@@ -86,6 +103,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
+  DiscutonsRoute: typeof DiscutonsRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
   BlogIdRoute: typeof BlogIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -98,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/politique-confidentialite'
       fullPath: '/politique-confidentialite'
       preLoaderRoute: typeof PolitiqueConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discutons': {
+      id: '/discutons'
+      path: '/discutons'
+      fullPath: '/discutons'
+      preLoaderRoute: typeof DiscutonsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cgv': {
@@ -134,6 +159,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
+  DiscutonsRoute: DiscutonsRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
   BlogIdRoute: BlogIdRoute,
   BlogIndexRoute: BlogIndexRoute,
