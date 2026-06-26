@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ASSETS } from '@/lib/intendant-assets';
 
 const AboutSection = () => {
   useEffect(() => {
