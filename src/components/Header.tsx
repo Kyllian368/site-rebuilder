@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouterState, useNavigate } from '@tanstack/react-router';
+import { useRouterState, useNavigate, Link } from '@tanstack/react-router';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,12 +103,13 @@ const Header = () => {
             >
               Blog
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-elegant-black text-white px-6 py-2 rounded-sm transition-all duration-300 font-medium"
+            <Link
+              to="/discutons"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="bg-[#941101] text-white px-6 py-2 rounded-sm hover:bg-[#7a0d01] transition-all duration-300 font-medium"
             >
-              Contact
-            </button>
+              Discutons de votre projet
+            </Link>
           </nav>
 
           {/* Bouton Menu Mobile */}
@@ -164,12 +165,13 @@ const Header = () => {
             >
               Blog
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="block w-full text-left py-3 px-2 bg-elegant-black text-white hover:bg-gray-800 transition-colors duration-300 font-medium rounded-sm mt-2"
+            <Link
+              to="/discutons"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block w-full text-left py-3 px-2 bg-[#941101] text-white hover:bg-[#7a0d01] transition-colors duration-300 font-medium rounded-sm mt-2"
             >
-              Contact
-            </button>
+              Discutons de votre projet
+            </Link>
           </nav>
         </div>
       </div>
