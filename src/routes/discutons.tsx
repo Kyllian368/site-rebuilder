@@ -2,10 +2,11 @@ import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ASSETS } from '@/lib/intendant-assets';
 
 // === À MODIFIER ===
 const MOTION_VIDEO_URL = ''; // ex: '/videos/intendant-motion.mp4'
-const VIDEO_POSTER_URL = '/__l5e/assets-v1/d3efe234-b92e-463d-baaf-f03c7eed352a/upload-939f160b.png';
+const VIDEO_POSTER_URL = ASSETS.capitoleBW;
 const CALENDLY_URL = ''; // ex: 'https://calendly.com/votre-compte/30min'
 const CONTACT_EMAIL = 'contact@lintendantconciergerie-toulouse.fr';
 // ==================
@@ -41,41 +42,42 @@ function DiscutonsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f5f1ea] text-elegant-black">
+    <div className="min-h-screen bg-white text-elegant-black">
       <Header />
-      <main className="pt-28 sm:pt-32 pb-16">
+      <main className="pt-28 sm:pt-32 pb-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
           {/* En-tête */}
-          <div className="text-center mb-10 sm:mb-14 animate-[fade-in_0.6s_ease-out]">
-            <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-[#941101] mb-3 font-medium">
+          <div className="text-center mb-12 sm:mb-16 animate-[fade-in_0.6s_ease-out]">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-medium">
               L'Intendant · Toulouse
             </p>
-            <h1 className="font-playfair text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+            <h1 className="font-playfair text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 text-elegant-black">
               Parlons de votre bien
             </h1>
-            <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto font-light">
+            <div className="h-px w-16 bg-gray-300 mx-auto mb-5" />
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
               Découvrez notre accompagnement et choisissez la manière la plus simple
               d'échanger avec nous.
             </p>
           </div>
 
           {/* Grille vidéo + choix */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* Vidéo */}
             <div className="lg:sticky lg:top-28">
               <MotionVideo />
-              <div className="mt-5 text-center lg:text-left">
-                <h2 className="font-playfair text-xl sm:text-2xl font-semibold mb-1">
+              <div className="mt-6 text-center lg:text-left">
+                <h2 className="font-playfair text-xl sm:text-2xl font-bold mb-2 text-elegant-black">
                   Découvrez L'Intendant en 45 secondes
                 </h2>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 font-light">
                   Une gestion complète, locale et exigeante de votre bien à Toulouse.
                 </p>
               </div>
             </div>
 
             {/* Choix / formulaire / calendly */}
-            <div className="space-y-5">
+            <div className="space-y-6">
               {choice === 'none' && (
                 <>
                   <ChoiceCard
@@ -108,7 +110,7 @@ function DiscutonsPage() {
               <div className="text-center pt-2">
                 <button
                   onClick={() => navigate({ to: '/' })}
-                  className="text-sm text-gray-500 hover:text-elegant-black transition-colors underline-offset-4 hover:underline"
+                  className="text-sm text-gray-500 hover:text-elegant-black transition-colors underline-offset-4 hover:underline font-light"
                 >
                   ← Retour au site
                 </button>
@@ -134,11 +136,8 @@ function MotionVideo() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          el.play().catch(() => {});
-        } else {
-          el.pause();
-        }
+        if (entry.isIntersecting) el.play().catch(() => {});
+        else el.pause();
       },
       { threshold: 0.4 }
     );
@@ -165,7 +164,7 @@ function MotionVideo() {
   return (
     <div
       ref={containerRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl bg-elegant-black shadow-sm ring-1 ring-black/5"
+      className="relative aspect-video w-full overflow-hidden rounded-sm bg-elegant-black shadow-lg"
     >
       {MOTION_VIDEO_URL ? (
         <video
@@ -180,20 +179,20 @@ function MotionVideo() {
           className="h-full w-full object-cover"
         />
       ) : (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white/80 px-6 text-center">
+        <>
           <img
             src={VIDEO_POSTER_URL}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-30"
+            alt="Capitole de Toulouse"
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
           />
-          <div className="relative">
+          <div className="absolute inset-0 bg-elegant-black/40" />
+          <div className="relative h-full flex flex-col items-center justify-center text-white px-6 text-center">
             <p className="font-playfair text-2xl sm:text-3xl mb-2">Motion design</p>
-            <p className="text-xs sm:text-sm text-white/60 max-w-xs">
-              Renseignez <code className="px-1 bg-white/10 rounded">MOTION_VIDEO_URL</code> dans
-              <code className="px-1 bg-white/10 rounded ml-1">src/routes/discutons.tsx</code>.
+            <p className="text-xs sm:text-sm text-white/70 max-w-xs font-light">
+              Vidéo de présentation à venir
             </p>
           </div>
-        </div>
+        </>
       )}
 
       {MOTION_VIDEO_URL && (
@@ -201,14 +200,14 @@ function MotionVideo() {
           <button
             onClick={togglePlay}
             aria-label={playing ? 'Pause' : 'Lecture'}
-            className="rounded-full bg-black/60 hover:bg-black/80 text-white w-9 h-9 grid place-items-center backdrop-blur transition"
+            className="rounded-full bg-elegant-black/70 hover:bg-elegant-black text-white w-9 h-9 grid place-items-center backdrop-blur transition"
           >
             {playing ? '❚❚' : '▶'}
           </button>
           <button
             onClick={toggleMute}
             aria-label={muted ? 'Activer le son' : 'Couper le son'}
-            className="rounded-full bg-black/60 hover:bg-black/80 text-white w-9 h-9 grid place-items-center backdrop-blur transition text-sm"
+            className="rounded-full bg-elegant-black/70 hover:bg-elegant-black text-white w-9 h-9 grid place-items-center backdrop-blur transition text-sm"
           >
             {muted ? '🔇' : '🔊'}
           </button>
@@ -237,38 +236,46 @@ function ChoiceCard({
   const isDark = variant === 'dark';
   return (
     <div
-      className={`group rounded-2xl p-6 sm:p-8 shadow-sm ring-1 transition-all duration-300 hover:shadow-md ${
+      className={`group rounded-sm p-7 sm:p-9 shadow-md border transition-all duration-300 hover:shadow-xl ${
         isDark
-          ? 'bg-elegant-black text-white ring-black/20'
-          : 'bg-white ring-black/5'
+          ? 'bg-elegant-black text-white border-elegant-black'
+          : 'bg-white text-elegant-black border-gray-200'
       }`}
     >
       <p
-        className={`text-xs uppercase tracking-[0.2em] mb-3 ${
-          isDark ? 'text-[#e9a89d]' : 'text-[#941101]'
+        className={`text-xs uppercase tracking-[0.25em] mb-3 font-medium ${
+          isDark ? 'text-gray-400' : 'text-gray-500'
         }`}
       >
         {eyebrow}
       </p>
-      <h3 className="font-playfair text-xl sm:text-2xl font-semibold mb-3 leading-snug">
+      <h3 className="font-playfair text-xl sm:text-2xl font-bold mb-3 leading-snug">
         {title}
       </h3>
       <p
-        className={`text-sm sm:text-base font-light mb-5 leading-relaxed ${
-          isDark ? 'text-white/80' : 'text-gray-600'
+        className={`text-sm sm:text-base font-light mb-6 leading-relaxed ${
+          isDark ? 'text-white/75' : 'text-gray-600'
         }`}
       >
         {text}
       </p>
       <button
         onClick={onClick}
-        className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-sm transition-all duration-300 group-hover:translate-x-0.5 ${
+        className={`inline-flex items-center gap-2 px-6 py-3 rounded-sm font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 border ${
           isDark
-            ? 'bg-white text-elegant-black hover:bg-[#f5f1ea]'
-            : 'bg-[#941101] text-white hover:bg-[#7a0d01]'
+            ? 'bg-white text-elegant-black border-white hover:bg-gray-100'
+            : 'bg-elegant-black text-white border-gray-800 hover:scale-[1.02]'
         }`}
       >
-        {cta} <span aria-hidden>→</span>
+        <span>{cta}</span>
+        <svg
+          className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
       </button>
     </div>
   );
@@ -288,7 +295,6 @@ function EstimationForm({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    // Honeypot
     if ((fd.get('website') as string)?.length) return;
 
     const errs: Record<string, string> = {};
@@ -302,32 +308,30 @@ function EstimationForm({
     }
     setErrors(errs);
     if (Object.keys(errs).length) return;
-
-    // TODO: brancher l'envoi côté serveur dans une 2e étape (Cloud + Resend).
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-black/5 text-center animate-[fade-in_0.5s_ease-out]">
-        <p className="text-xs uppercase tracking-[0.2em] text-[#941101] mb-3">Merci</p>
-        <h3 className="font-playfair text-2xl sm:text-3xl font-semibold mb-3">
+      <div className="rounded-sm bg-white p-8 shadow-md border border-gray-200 text-center animate-[fade-in_0.5s_ease-out]">
+        <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-3 font-medium">Merci</p>
+        <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 text-elegant-black">
           Demande bien reçue
         </h3>
-        <p className="text-gray-600 mb-6 font-light">
+        <p className="text-gray-600 mb-6 font-light leading-relaxed">
           Merci pour votre confiance. Nous allons étudier les informations concernant votre
           logement et revenir vers vous sous 48 heures.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={onBack}
-            className="px-5 py-3 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition"
+            className="px-6 py-3 rounded-sm border border-gray-300 text-sm font-semibold hover:bg-gray-50 transition"
           >
             Retour au site
           </button>
           <button
             onClick={onSwitchToRdv}
-            className="px-5 py-3 rounded-lg bg-[#941101] text-white text-sm font-medium hover:bg-[#7a0d01] transition"
+            className="px-6 py-3 rounded-sm bg-elegant-black text-white text-sm font-semibold hover:bg-gray-900 transition"
           >
             Voir les créneaux disponibles
           </button>
@@ -339,11 +343,11 @@ function EstimationForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm ring-1 ring-black/5 space-y-4"
+      className="rounded-sm bg-white p-6 sm:p-8 shadow-md border border-gray-200 space-y-4"
       noValidate
     >
       <div className="flex items-center justify-between mb-2">
-        <h3 className="font-playfair text-xl sm:text-2xl font-semibold">
+        <h3 className="font-playfair text-xl sm:text-2xl font-bold text-elegant-black">
           Demande d'estimation
         </h3>
         <button
@@ -384,33 +388,32 @@ function EstimationForm({
       />
 
       <fieldset>
-        <legend className="text-sm font-medium mb-2">
+        <legend className="text-sm font-medium mb-2 text-elegant-black">
           Êtes-vous déjà en location courte durée ?{' '}
-          <span className="text-[#941101]">*</span>
+          <span className="text-gray-500">*</span>
         </legend>
         <div className="flex gap-4">
           {['Oui', 'Non'].map((v) => (
             <label key={v} className="flex items-center gap-2 text-sm">
-              <input type="radio" name="deja_en_lcd" value={v} className="accent-[#941101]" />
+              <input type="radio" name="deja_en_lcd" value={v} className="accent-elegant-black" />
               {v}
             </label>
           ))}
         </div>
         {errors.deja_en_lcd && (
-          <p className="text-xs text-[#941101] mt-1">{errors.deja_en_lcd}</p>
+          <p className="text-xs text-red-600 mt-1">{errors.deja_en_lcd}</p>
         )}
       </fieldset>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Message (facultatif)</label>
+        <label className="block text-sm font-medium mb-1 text-elegant-black">Message (facultatif)</label>
         <textarea
           name="message"
           rows={3}
-          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-[#941101] focus:ring-1 focus:ring-[#941101] outline-none"
+          className="w-full rounded-sm border border-gray-300 px-3 py-2 text-sm focus:border-elegant-black focus:ring-1 focus:ring-elegant-black outline-none transition"
         />
       </div>
 
-      {/* Honeypot */}
       <input
         type="text"
         name="website"
@@ -422,15 +425,15 @@ function EstimationForm({
 
       <button
         type="submit"
-        className="w-full rounded-lg bg-[#941101] text-white font-medium py-3 hover:bg-[#7a0d01] transition"
+        className="w-full rounded-sm bg-elegant-black text-white font-semibold py-3 hover:bg-gray-900 transition shadow-md"
       >
         Recevoir mon estimation gratuite
       </button>
-      <p className="text-xs text-center text-gray-500">
+      <p className="text-xs text-center text-gray-500 font-light">
         Réponse sous 48 h · Sans engagement · Vos données restent confidentielles
       </p>
 
-      <p className="text-[11px] text-gray-500 leading-relaxed pt-3 border-t border-gray-100">
+      <p className="text-[11px] text-gray-500 leading-relaxed pt-3 border-t border-gray-100 font-light">
         Les informations recueillies sont utilisées par L'Intendant Toulouse afin de traiter
         votre demande et de vous recontacter. Elles ne sont pas cédées à des tiers. Vous
         pouvez exercer vos droits en écrivant à{' '}
@@ -463,16 +466,16 @@ function Field({
 } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="block text-sm font-medium mb-1">
-        {label} {required && <span className="text-[#941101]">*</span>}
+      <label className="block text-sm font-medium mb-1 text-elegant-black">
+        {label} {required && <span className="text-gray-500">*</span>}
       </label>
       <input
         name={name}
         type={type}
-        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-[#941101] focus:ring-1 focus:ring-[#941101] outline-none"
+        className="w-full rounded-sm border border-gray-300 px-3 py-2 text-sm focus:border-elegant-black focus:ring-1 focus:ring-elegant-black outline-none transition"
         {...rest}
       />
-      {error && <p className="text-xs text-[#941101] mt-1">{error}</p>}
+      {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
     </div>
   );
 }
@@ -492,13 +495,13 @@ function SelectField({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium mb-1">
-        {label} {required && <span className="text-[#941101]">*</span>}
+      <label className="block text-sm font-medium mb-1 text-elegant-black">
+        {label} {required && <span className="text-gray-500">*</span>}
       </label>
       <select
         name={name}
         defaultValue=""
-        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:border-[#941101] focus:ring-1 focus:ring-[#941101] outline-none"
+        className="w-full rounded-sm border border-gray-300 px-3 py-2 text-sm bg-white focus:border-elegant-black focus:ring-1 focus:ring-elegant-black outline-none transition"
       >
         <option value="" disabled>
           Sélectionnez…
@@ -509,7 +512,7 @@ function SelectField({
           </option>
         ))}
       </select>
-      {error && <p className="text-xs text-[#941101] mt-1">{error}</p>}
+      {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
     </div>
   );
 }
@@ -517,9 +520,9 @@ function SelectField({
 /* ------------------------- Calendly ------------------------- */
 function CalendlyBlock({ onBack }: { onBack: () => void }) {
   return (
-    <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-black/5">
+    <div className="rounded-sm bg-white p-4 sm:p-6 shadow-md border border-gray-200">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-playfair text-xl sm:text-2xl font-semibold">
+        <h3 className="font-playfair text-xl sm:text-2xl font-bold text-elegant-black">
           Choisissez votre créneau
         </h3>
         <button
@@ -531,7 +534,7 @@ function CalendlyBlock({ onBack }: { onBack: () => void }) {
         </button>
       </div>
       {CALENDLY_URL ? (
-        <div className="rounded-xl overflow-hidden ring-1 ring-black/5">
+        <div className="rounded-sm overflow-hidden border border-gray-200">
           <iframe
             src={CALENDLY_URL}
             title="Réserver un rendez-vous"
@@ -541,11 +544,9 @@ function CalendlyBlock({ onBack }: { onBack: () => void }) {
           />
         </div>
       ) : (
-        <div className="rounded-xl bg-[#f5f1ea] border border-dashed border-gray-300 p-8 text-center">
-          <p className="text-sm text-gray-600">
-            Renseignez <code className="px-1 bg-white rounded">CALENDLY_URL</code> dans
-            <code className="px-1 bg-white rounded ml-1">src/routes/discutons.tsx</code> pour
-            afficher le calendrier ici.
+        <div className="rounded-sm bg-gray-50 border border-dashed border-gray-300 p-10 text-center">
+          <p className="text-sm text-gray-600 font-light">
+            Le calendrier de réservation s'affichera ici dès que le lien Calendly sera renseigné.
           </p>
         </div>
       )}

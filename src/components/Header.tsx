@@ -106,7 +106,7 @@ const Header = () => {
             <Link
               to="/discutons"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-[#941101] text-white px-6 py-2 rounded-sm hover:bg-[#7a0d01] transition-all duration-300 font-medium"
+              className="bg-elegant-black text-white px-6 py-2 rounded-sm hover:bg-gray-900 transition-all duration-300 font-medium"
             >
               Discutons de votre projet
             </Link>
@@ -168,7 +168,7 @@ const Header = () => {
             <Link
               to="/discutons"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left py-3 px-2 bg-[#941101] text-white hover:bg-[#7a0d01] transition-colors duration-300 font-medium rounded-sm mt-2"
+              className="block w-full text-left py-3 px-2 bg-elegant-black text-white hover:bg-gray-900 transition-colors duration-300 font-medium rounded-sm mt-2"
             >
               Discutons de votre projet
             </Link>
