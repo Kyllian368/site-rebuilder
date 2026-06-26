@@ -38,9 +38,9 @@ const Footer = () => {
           <div className="text-center mb-4">
             <Link 
               to="/cgv" 
-              onClick={handleCGVClick}
               className="text-gray-300 hover:text-white transition-colors duration-300 font-medium border-b border-gray-600 hover:border-white pb-1 mr-6"
             >
+
               Conditions générales de vente
             </Link>
             <Link 
