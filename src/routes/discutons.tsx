@@ -7,7 +7,7 @@ import { ASSETS } from '@/lib/intendant-assets';
 // === À MODIFIER ===
 const MOTION_VIDEO_URL = ''; // ex: '/videos/intendant-motion.mp4'
 const VIDEO_POSTER_URL = ASSETS.capitoleBW;
-const CALENDLY_URL = ''; // ex: 'https://calendly.com/votre-compte/30min'
+const CALENDLY_URL = 'https://calendly.com/lintendantconciergerie/30min';
 const CONTACT_EMAIL = 'contact@lintendantconciergerie-toulouse.fr';
 // ==================
 
@@ -291,6 +291,7 @@ function EstimationForm({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [typeBien, setTypeBien] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -298,13 +299,24 @@ function EstimationForm({
     if ((fd.get('website') as string)?.length) return;
 
     const errs: Record<string, string> = {};
-    const required = ['nom', 'email', 'ville', 'type_bien', 'nombre_chambres', 'deja_en_lcd'];
+    const required = [
+      'nom',
+      'email',
+      'telephone',
+      'ville',
+      'type_bien',
+      'nombre_chambres',
+      'deja_en_lcd',
+    ];
     required.forEach((k) => {
       if (!fd.get(k)) errs[k] = 'Champ requis';
     });
     const email = (fd.get('email') as string) || '';
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errs.email = 'E-mail invalide';
+    }
+    if (fd.get('type_bien') === 'Autre' && !(fd.get('type_bien_autre') as string)?.trim()) {
+      errs.type_bien_autre = 'Veuillez préciser';
     }
     setErrors(errs);
     if (Object.keys(errs).length) return;
@@ -361,7 +373,7 @@ function EstimationForm({
 
       <Field label="Nom complet" name="nom" error={errors.nom} required />
       <Field label="E-mail" name="email" type="email" error={errors.email} required />
-      <Field label="Téléphone (facultatif)" name="telephone" type="tel" />
+      <Field label="Téléphone" name="telephone" type="tel" error={errors.telephone} required />
       <Field label="Ville ou quartier du bien" name="ville" error={errors.ville} required />
 
       <SelectField
@@ -369,6 +381,8 @@ function EstimationForm({
         name="type_bien"
         error={errors.type_bien}
         required
+        value={typeBien}
+        onChange={(e) => setTypeBien(e.target.value)}
         options={[
           'Studio',
           'Appartement 2 pièces',
@@ -377,6 +391,15 @@ function EstimationForm({
           'Autre',
         ]}
       />
+
+      {typeBien === 'Autre' && (
+        <Field
+          label="Veuillez préciser"
+          name="type_bien_autre"
+          error={errors.type_bien_autre}
+          required
+        />
+      )}
 
       <Field
         label="Nombre de chambres"
@@ -486,12 +509,16 @@ function SelectField({
   options,
   required,
   error,
+  value,
+  onChange,
 }: {
   label: string;
   name: string;
   options: string[];
   required?: boolean;
   error?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }) {
   return (
     <div>
@@ -500,7 +527,9 @@ function SelectField({
       </label>
       <select
         name={name}
-        defaultValue=""
+        value={value}
+        onChange={onChange}
+        defaultValue={value === undefined ? '' : undefined}
         className="w-full rounded-sm border border-gray-300 px-3 py-2 text-sm bg-white focus:border-elegant-black focus:ring-1 focus:ring-elegant-black outline-none transition"
       >
         <option value="" disabled>
