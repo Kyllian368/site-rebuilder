@@ -53,16 +53,18 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-3xl mx-auto hero-mobile-zoom">
-        <p className="font-hero-body text-[10px] sm:text-xs uppercase tracking-[0.35em] text-gray-500 mb-8 animate-on-scroll font-medium">
-          Votre bien. Notre expertise. Vos revenus maximisés.
-        </p>
-
-        <h1 className="font-hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal italic tracking-tight leading-[1.15] mb-12 animate-on-scroll text-elegant-black">
-          Conciergerie toulousaine spécialisée dans la gestion locative courte durée.
+      <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-4xl mx-auto hero-mobile-zoom">
+        <h1 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 animate-on-scroll leading-tight">
+          Votre bien.
+          <br />
+          <span className="text-gray-700">Notre expertise.</span>
+          <br />
+          Vos revenus maximisés.
         </h1>
 
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto mb-10 animate-on-scroll"></div>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 animate-on-scroll leading-relaxed max-w-2xl mx-auto">
+          Conciergerie toulousaine spécialisée dans la gestion locative courte durée. Nous optimisons votre investissement avec excellence et sérénité.
+        </p>
 
         <div className="animate-on-scroll">
           <Link
