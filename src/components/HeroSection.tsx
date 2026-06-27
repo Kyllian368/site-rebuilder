@@ -55,13 +55,17 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-4xl mx-auto hero-mobile-zoom">
         <h1 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 animate-on-scroll leading-tight">
+          Conciergerie location courte durée à Toulouse
+        </h1>
+
+        <p className="font-playfair text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 md:mb-6 animate-on-scroll leading-tight text-elegant-black">
           Votre bien.
           <br />
           <span className="text-gray-700">Notre expertise.</span>
           <br />
           Vos revenus maximisés.
-        </h1>
-        
+        </p>
+
         <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 md:mb-8 font-light animate-on-scroll text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Conciergerie toulousaine spécialisée dans la gestion locative courte durée. 
           Nous optimisons votre investissement avec excellence et sérénité.
