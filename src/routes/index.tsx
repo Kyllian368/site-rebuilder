@@ -37,6 +37,7 @@ function Index() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <PricingSection />
       <TestimonialsSection />
       <StatsSection />
       <ExpertiseSection />
