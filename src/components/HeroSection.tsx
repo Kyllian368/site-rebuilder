@@ -12,6 +12,9 @@ const HeroSection = () => {
       if (!video) return;
       video.muted = true;
       video.defaultMuted = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', 'true');
       video.playsInline = true;
       video.autoplay = true;
       video.controls = false;
@@ -65,7 +68,6 @@ const HeroSection = () => {
           src={heroVideo.url}
           autoPlay
           muted
-          defaultMuted
           loop
           playsInline
           webkit-playsinline="true"
