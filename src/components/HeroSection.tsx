@@ -4,8 +4,27 @@ import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.playsInline = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const handleInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener('click', handleInteraction);
+            window.removeEventListener('touchstart', handleInteraction);
+          };
+          window.addEventListener('click', handleInteraction, { once: true });
+          window.addEventListener('touchstart', handleInteraction, { once: true });
+        });
+      }
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.target.classList.contains('animate-on-scroll')) {
