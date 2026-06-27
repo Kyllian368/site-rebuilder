@@ -7,6 +7,8 @@
 @theme inline {
   --font-playfair: "Playfair Display", serif;
   --font-inter: "Inter", sans-serif;
+  --font-hero-title: "Libre Baskerville", serif;
+  --font-hero-body: "IBM Plex Sans", sans-serif;
 
   --color-elegant-black: #0a0a0a;
   --color-elegant-white: #fafafa;
