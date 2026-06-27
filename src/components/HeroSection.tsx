@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from '@tanstack/react-router';
+import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -24,31 +25,17 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Toulouse images */}
+      {/* Background video */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100">
-          <div className="absolute inset-0 grid grid-cols-2 opacity-40">
-            <div className="relative overflow-hidden">
-              <img 
-                src="/__l5e/assets-v1/d3efe234-b92e-463d-baaf-f03c7eed352a/upload-939f160b.png"
-                alt="Architecture toulousaine - Bâtiments historiques"
-                className="w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </div>
-            <div className="relative overflow-hidden">
-              <img 
-                src="/__l5e/assets-v1/728590aa-2ef0-4b99-8cdc-4d09131eac20/upload-c0783b41.png"
-                alt="Place du Capitole Toulouse - Architecture emblématique"
-                className="w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-60"
+          style={{ filter: 'grayscale(1)' }}
+        />
         <div className="absolute inset-0 bg-white/60"></div>
       </div>
 
