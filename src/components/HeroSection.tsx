@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from '@tanstack/react-router';
-import heroVideo from '@/assets/toulouse-hero-3.mp4.asset.json';
+import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
