@@ -47,14 +47,18 @@ const HeroSection = () => {
       {/* Background video */}
       <div className="absolute inset-0 bg-gray-100">
         <video
+          ref={videoRef}
           src={heroVideo.url}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-contain opacity-70"
-          style={{ filter: 'grayscale(1)' }}
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          className="w-full h-full object-contain opacity-80"
+          style={{ filter: 'grayscale(1) contrast(1.05)' }}
         />
         <div className="absolute inset-0 bg-white/60"></div>
       </div>
