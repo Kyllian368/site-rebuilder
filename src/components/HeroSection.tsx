@@ -8,9 +8,16 @@ const HeroSection = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    const startVideo = () => {
+      if (!video) return;
       video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', 'true');
       video.playsInline = true;
+      video.autoplay = true;
+      video.controls = false;
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
@@ -23,7 +30,12 @@ const HeroSection = () => {
           window.addEventListener('touchstart', handleInteraction, { once: true });
         });
       }
-    }
+    };
+
+    startVideo();
+    video?.addEventListener('loadeddata', startVideo);
+    video?.addEventListener('canplay', startVideo);
+    document.addEventListener('visibilitychange', startVideo);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,7 +51,12 @@ const HeroSection = () => {
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video?.removeEventListener('loadeddata', startVideo);
+      video?.removeEventListener('canplay', startVideo);
+      document.removeEventListener('visibilitychange', startVideo);
+    };
   }, []);
 
   return (
@@ -53,6 +70,7 @@ const HeroSection = () => {
           muted
           loop
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           controls={false}
           disablePictureInPicture
