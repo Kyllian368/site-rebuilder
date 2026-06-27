@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
 import { Route as DiscutonsRouteImport } from './routes/discutons'
 import { Route as CgvRouteImport } from './routes/cgv'
@@ -16,6 +17,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogIdRouteImport } from './routes/blog.$id'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PolitiqueConfidentialiteRoute =
   PolitiqueConfidentialiteRouteImport.update({
     id: '/politique-confidentialite',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/cgv'
     | '/discutons'
     | '/politique-confidentialite'
+    | '/sitemap.xml'
     | '/blog/$id'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/cgv'
     | '/discutons'
     | '/politique-confidentialite'
+    | '/sitemap.xml'
     | '/blog/$id'
     | '/blog'
   id:
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/cgv'
     | '/discutons'
     | '/politique-confidentialite'
+    | '/sitemap.xml'
     | '/blog/$id'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -105,12 +117,20 @@ export interface RootRouteChildren {
   CgvRoute: typeof CgvRoute
   DiscutonsRoute: typeof DiscutonsRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogIdRoute: typeof BlogIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/politique-confidentialite': {
       id: '/politique-confidentialite'
       path: '/politique-confidentialite'
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   CgvRoute: CgvRoute,
   DiscutonsRoute: DiscutonsRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogIdRoute: BlogIdRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
