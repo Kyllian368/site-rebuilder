@@ -55,7 +55,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-4xl mx-auto hero-mobile-zoom">
         <h1 className="text-xs sm:text-sm font-medium tracking-widest text-gray-500 uppercase mb-4 sm:mb-6 animate-on-scroll">
-          Conciergerie Airbnb & location courte durée à Toulouse
+          Conciergerie toulousaine spécialisée dans la gestion locative courte durée. Nous optimisons votre investissement avec excellence et sérénité.
         </h1>
 
         <p className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 animate-on-scroll leading-tight text-elegant-black">
