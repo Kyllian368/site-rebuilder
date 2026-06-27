@@ -26,14 +26,15 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gray-100">
         <video
           src={heroVideo.url}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60"
+          preload="auto"
+          className="w-full h-full object-contain opacity-70"
           style={{ filter: 'grayscale(1)' }}
         />
         <div className="absolute inset-0 bg-white/60"></div>
