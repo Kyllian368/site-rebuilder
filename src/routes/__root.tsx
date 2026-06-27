@@ -76,10 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=0.8, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" },
       { name: "theme-color", content: "#0a0a0a" },
       { name: "color-scheme", content: "light" },
-      { title: "L'Intendant - Conciergerie Gestion Locative Courte Durée Toulouse" },
+      { title: "Conciergerie Airbnb Toulouse | L'Intendant" },
       { name: "description", content: "L'Intendant, conciergerie toulousaine spécialisée en gestion locative courte durée. Maximisez vos revenus Airbnb avec notre expertise locale. Devis gratuit." },
       { name: "keywords", content: "gestion locative courte durée, conciergerie Toulouse, Airbnb, location saisonnière, yield management, gestion Airbnb Toulouse, conciergerie location courte durée" },
       { name: "author", content: "L'Intendant" },
@@ -102,6 +102,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "L'Intendant Toulouse",
+          description: "Conciergerie toulousaine spécialisée en gestion locative courte durée (Airbnb, Booking). Maximisez vos revenus avec notre expertise locale.",
+          url: "https://www.lintendantconciergerie-toulouse.fr",
+          email: "contact@lintendantconciergerie-toulouse.fr",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Toulouse",
+            addressRegion: "Occitanie",
+            addressCountry: "FR",
+          },
+          areaServed: [
+            { "@type": "City", name: "Toulouse" },
+            { "@type": "City", name: "Blagnac" },
+            { "@type": "City", name: "Colomiers" },
+            { "@type": "City", name: "Balma" },
+            { "@type": "City", name: "Ramonville-Saint-Agne" },
+          ],
+          priceRange: "€€",
+          knowsAbout: [
+            "Conciergerie Airbnb",
+            "Location courte durée",
+            "Gestion locative saisonnière",
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,

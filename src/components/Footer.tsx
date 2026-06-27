@@ -26,11 +26,19 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="font-playfair text-xl font-semibold mb-4">Contact</h3>
-            <div className="space-y-2 text-gray-300">
+            <address className="not-italic space-y-2 text-gray-300 leading-relaxed">
+              <p className="font-semibold text-white">L'Intendant — Conciergerie Toulouse</p>
+              <p>Toulouse &amp; métropole, France</p>
               <p>06.21.93.44.13</p>
-              <p>contact@lintendantconciergerie-toulouse.fr</p>
-              <p>Toulouse, France</p>
-            </div>
+              <p>
+                <a
+                  href="mailto:contact@lintendantconciergerie-toulouse.fr"
+                  className="hover:text-white transition-colors"
+                >
+                  contact@lintendantconciergerie-toulouse.fr
+                </a>
+              </p>
+            </address>
           </div>
         </div>
 
