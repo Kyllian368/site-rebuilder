@@ -4,8 +4,27 @@ import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.playsInline = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const handleInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener('click', handleInteraction);
+            window.removeEventListener('touchstart', handleInteraction);
+          };
+          window.addEventListener('click', handleInteraction, { once: true });
+          window.addEventListener('touchstart', handleInteraction, { once: true });
+        });
+      }
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.target.classList.contains('animate-on-scroll')) {
@@ -28,14 +47,18 @@ const HeroSection = () => {
       {/* Background video */}
       <div className="absolute inset-0 bg-gray-100">
         <video
+          ref={videoRef}
           src={heroVideo.url}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-contain opacity-70"
-          style={{ filter: 'grayscale(1)' }}
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          className="w-full h-full object-contain opacity-80"
+          style={{ filter: 'grayscale(1) contrast(1.05)' }}
         />
         <div className="absolute inset-0 bg-white/60"></div>
       </div>
