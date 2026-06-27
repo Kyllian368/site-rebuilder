@@ -53,14 +53,16 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-4xl mx-auto hero-mobile-zoom">
-        <p className="font-inter text-[10px] sm:text-xs uppercase tracking-[0.3em] text-gray-500 mb-6 animate-on-scroll font-medium">
+      <div className="relative z-10 text-center text-elegant-black px-4 sm:px-6 max-w-3xl mx-auto hero-mobile-zoom">
+        <p className="font-inter text-[10px] sm:text-xs uppercase tracking-[0.35em] text-gray-500 mb-8 animate-on-scroll font-medium">
           Votre bien. Notre expertise. Vos revenus maximisés.
         </p>
 
-        <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal italic tracking-tight mb-10 animate-on-scroll leading-[1.1] text-elegant-black">
+        <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal italic tracking-tight leading-[1.15] mb-12 animate-on-scroll text-elegant-black">
           Conciergerie toulousaine spécialisée dans la gestion locative courte durée.
         </h1>
+
+        <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto mb-10 animate-on-scroll"></div>
 
         <div className="animate-on-scroll">
           <Link
