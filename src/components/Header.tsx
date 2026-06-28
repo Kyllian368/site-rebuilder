@@ -72,32 +72,43 @@ const Header = () => {
           </div>
           
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex items-center space-x-8 -mr-2 sm:-mr-4">
-            <button 
-              onClick={() => scrollToSection('apropos')}
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-7 -mr-2 sm:-mr-4">
+            <Link
+              to="/"
+              onClick={handleLogoClick}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
-              À propos
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
+              Accueil
+            </Link>
+            <Link
+              to="/services"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('temoignages')}
+            </Link>
+            <Link
+              to="/tarifs"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
-              Témoignages
-            </button>
-            <button 
-              onClick={() => scrollToSection('pourquoi')}
+              Tarifs
+            </Link>
+            <Link
+              to="/comment-ca-marche"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
-              Pourquoi nous ?
-            </button>
-            <button 
+              Comment ça marche
+            </Link>
+            <Link
+              to="/faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
+            >
+              FAQ
+            </Link>
+            <button
               onClick={handleBlogClick}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
@@ -108,7 +119,7 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="bg-elegant-black text-white px-6 py-2 rounded-sm hover:bg-gray-900 transition-all duration-300 font-medium"
             >
-              Discutons de votre projet
+              Discutons
             </Link>
           </nav>
 
@@ -135,31 +146,42 @@ const Header = () => {
           isMobileMenuOpen ? 'max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <nav className="pt-4 pb-2 space-y-3">
-            <button 
-              onClick={() => scrollToSection('apropos')}
+            <Link
+              to="/"
+              onClick={handleLogoClick}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
-              À propos
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
+              Accueil
+            </Link>
+            <Link
+              to="/services"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('temoignages')}
+            </Link>
+            <Link
+              to="/tarifs"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
-              Témoignages
-            </button>
-            <button 
-              onClick={() => scrollToSection('pourquoi')}
+              Tarifs
+            </Link>
+            <Link
+              to="/comment-ca-marche"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
-              Pourquoi nous ?
-            </button>
-            <button 
+              Comment ça marche
+            </Link>
+            <Link
+              to="/faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
+            >
+              FAQ
+            </Link>
+            <button
               onClick={handleBlogClick}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
@@ -170,7 +192,7 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 bg-elegant-black text-white hover:bg-gray-900 transition-colors duration-300 font-medium rounded-sm mt-2"
             >
-              Discutons de votre projet
+              Discutons
             </Link>
           </nav>
         </div>

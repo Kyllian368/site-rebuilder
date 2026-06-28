@@ -9,17 +9,31 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DiscutonsRouteImport } from './routes/discutons'
+import { Route as CommentCaMarcheRouteImport } from './routes/comment-ca-marche'
 import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogIdRouteImport } from './routes/blog.$id'
 
+const TarifsRoute = TarifsRouteImport.update({
+  id: '/tarifs',
+  path: '/tarifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PolitiqueConfidentialiteRoute =
@@ -28,9 +42,19 @@ const PolitiqueConfidentialiteRoute =
     path: '/politique-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiscutonsRoute = DiscutonsRouteImport.update({
   id: '/discutons',
   path: '/discutons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommentCaMarcheRoute = CommentCaMarcheRouteImport.update({
+  id: '/comment-ca-marche',
+  path: '/comment-ca-marche',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CgvRoute = CgvRouteImport.update({
@@ -57,18 +81,26 @@ const BlogIdRoute = BlogIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
+  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tarifs': typeof TarifsRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
+  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tarifs': typeof TarifsRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -76,9 +108,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
+  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tarifs': typeof TarifsRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -87,27 +123,39 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cgv'
+    | '/comment-ca-marche'
     | '/discutons'
+    | '/faq'
     | '/politique-confidentialite'
+    | '/services'
     | '/sitemap.xml'
+    | '/tarifs'
     | '/blog/$id'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/cgv'
+    | '/comment-ca-marche'
     | '/discutons'
+    | '/faq'
     | '/politique-confidentialite'
+    | '/services'
     | '/sitemap.xml'
+    | '/tarifs'
     | '/blog/$id'
     | '/blog'
   id:
     | '__root__'
     | '/'
     | '/cgv'
+    | '/comment-ca-marche'
     | '/discutons'
+    | '/faq'
     | '/politique-confidentialite'
+    | '/services'
     | '/sitemap.xml'
+    | '/tarifs'
     | '/blog/$id'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -115,20 +163,38 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
+  CommentCaMarcheRoute: typeof CommentCaMarcheRoute
   DiscutonsRoute: typeof DiscutonsRoute
+  FaqRoute: typeof FaqRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
+  ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TarifsRoute: typeof TarifsRoute
   BlogIdRoute: typeof BlogIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tarifs': {
+      id: '/tarifs'
+      path: '/tarifs'
+      fullPath: '/tarifs'
+      preLoaderRoute: typeof TarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/politique-confidentialite': {
@@ -138,11 +204,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PolitiqueConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/discutons': {
       id: '/discutons'
       path: '/discutons'
       fullPath: '/discutons'
       preLoaderRoute: typeof DiscutonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comment-ca-marche': {
+      id: '/comment-ca-marche'
+      path: '/comment-ca-marche'
+      fullPath: '/comment-ca-marche'
+      preLoaderRoute: typeof CommentCaMarcheRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cgv': {
@@ -179,9 +259,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
+  CommentCaMarcheRoute: CommentCaMarcheRoute,
   DiscutonsRoute: DiscutonsRoute,
+  FaqRoute: FaqRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
+  ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TarifsRoute: TarifsRoute,
   BlogIdRoute: BlogIdRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
