@@ -61,7 +61,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <button 
               onClick={handleLogoClick}
-              className="transition-opacity hover:opacity-80"
+              className="transition-opacity hover:opacity-80 -ml-2 sm:-ml-4"
             >
             <img 
               src="/__l5e/assets-v1/c304b4f6-f6ff-4dc6-b32f-e2d3b86f5cb8/logo.png" 
