@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Link } from '@tanstack/react-router';
+
 
 const ServicesSection = () => {
   useEffect(() => {
@@ -98,9 +100,22 @@ const ServicesSection = () => {
               <h4 className="font-playfair text-lg font-semibold mb-2">Gestion locative simplifiée</h4>
             </div>
           </div>
+
+          <div className="mt-12">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
+            >
+              <span>Découvrir tous nos services</span>
+              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
+
   );
 };
 
