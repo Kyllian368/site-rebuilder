@@ -56,7 +56,7 @@ const Header = () => {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-gray-200 ${
       isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white/90 backdrop-blur-sm'
     }`}>
-      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-5">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 py-4 sm:py-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <button 

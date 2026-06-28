@@ -75,7 +75,7 @@ const HeroSection = () => {
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
-          className="w-full h-full object-contain opacity-80"
+          className="w-full h-full object-cover opacity-80"
           style={{ filter: 'grayscale(1) contrast(1.05)' }}
         />
         <div className="absolute inset-0 bg-white/35"></div>
