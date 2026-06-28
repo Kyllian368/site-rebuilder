@@ -35,6 +35,12 @@ const FALLBACK_REVIEWS: GoogleReview[] = [
   },
 ];
 
+const formatName = (name: string) =>
+  name
+    .split(' ')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+
 const renderStars = (rating: number) =>
   Array.from({ length: 5 }, (_, i) => (
     <span
@@ -152,18 +158,18 @@ const TestimonialsSection = () => {
                 {r.authorPhoto ? (
                   <img
                     src={r.authorPhoto}
-                    alt={r.authorName}
+                    alt={formatName(r.authorName)}
                     className="w-10 h-10 rounded-full object-cover"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                 ) : (
                   <div className="w-10 h-10 rounded-full bg-gray-300 grid place-items-center text-sm font-semibold text-white">
-                    {r.authorName.charAt(0).toUpperCase()}
+                    {formatName(r.authorName).charAt(0).toUpperCase()}
                   </div>
                 )}
                 <div>
-                  <p className="font-semibold text-elegant-black text-sm">{r.authorName}</p>
+                  <p className="font-semibold text-elegant-black text-sm">{formatName(r.authorName)}</p>
                   <p className="text-gray-500 text-xs">Avis Google</p>
                 </div>
               </div>
