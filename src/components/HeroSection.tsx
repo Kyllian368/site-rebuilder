@@ -78,7 +78,7 @@ const HeroSection = () => {
           className="w-full h-full object-contain opacity-80"
           style={{ filter: 'grayscale(1) contrast(1.05)' }}
         />
-        <div className="absolute inset-0 bg-white/60"></div>
+        <div className="absolute inset-0 bg-white/35"></div>
       </div>
 
       {/* Content */}
