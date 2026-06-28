@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from '@tanstack/react-router';
+
 
 const StatsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -148,9 +150,22 @@ const StatsSection = () => {
               </div>
             </div>
           </div>
+
+          <div className="mt-10">
+            <Link
+              to="/comment-ca-marche"
+              className="inline-flex items-center gap-2 text-elegant-black font-semibold border-b-2 border-elegant-black pb-1 hover:gap-3 transition-all duration-300"
+            >
+              <span>En savoir plus</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
+
   );
 };
 
