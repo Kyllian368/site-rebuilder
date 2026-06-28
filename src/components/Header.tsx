@@ -72,7 +72,7 @@ const Header = () => {
           </div>
           
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 -mr-2 sm:-mr-4">
             <button 
               onClick={() => scrollToSection('apropos')}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
