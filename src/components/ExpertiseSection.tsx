@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import expertiseVideo from '@/assets/toulouse-hero-3.mp4.asset.json';
 
 const ExpertiseSection = () => {
   useEffect(() => {
@@ -20,8 +21,20 @@ const ExpertiseSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-elegant-gray">
-      <div className="container mx-auto px-6">
+    <section className="relative overflow-hidden py-20 bg-elegant-gray">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        controls={false}
+        src={expertiseVideo.url}
+        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        style={{ filter: 'grayscale(1)' }}
+      />
+      <div className="absolute inset-0 bg-white/50" />
+      <div className="relative z-10 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">

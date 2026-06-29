@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from '@tanstack/react-router';
+import statsVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 
 const StatsSection = () => {
@@ -97,8 +98,20 @@ const StatsSection = () => {
   }, [isVisible]);
 
   return (
-    <section id="pourquoi" ref={sectionRef} className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="pourquoi" ref={sectionRef} className="relative overflow-hidden py-20 bg-white">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        controls={false}
+        src={statsVideo.url}
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        style={{ filter: 'grayscale(1)' }}
+      />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-elegant-black">
             Pourquoi L'Intendant ?
