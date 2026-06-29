@@ -3,7 +3,13 @@ import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
-import heroVideo from '@/assets/toulouse-hero-2.mp4.asset.json';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import heroVideo from '@/assets/toulouse-hero-3.mp4.asset.json';
 
 export const Route = createFileRoute('/tarifs')({
   head: () => ({
@@ -38,6 +44,42 @@ const included = [
   'Reporting mensuel détaillé',
 ];
 
+const steps = [
+  {
+    n: '01',
+    title: 'Échange & estimation',
+    text: "Premier rendez-vous pour comprendre votre bien, vos objectifs et vos contraintes. Estimation personnalisée des revenus potentiels selon votre quartier et la saisonnalité.",
+  },
+  {
+    n: '02',
+    title: 'Mise en place clé en main',
+    text: "Shooting photo professionnel, rédaction et publication des annonces, paramétrage de la tarification dynamique, équipement du bien (linge, accessoires, boîte à clés).",
+  },
+  {
+    n: '03',
+    title: 'On gère, vous percevez',
+    text: "Gestion quotidienne des voyageurs, du ménage et de la maintenance. Reporting mensuel détaillé et versement de vos revenus chaque mois.",
+  },
+];
+
+const compareLeft = [
+  'Annonces basiques',
+  'Tarifs fixes toute l\'année',
+  'Vous gérez les voyageurs',
+  'Ménage à organiser vous-même',
+  'Aucun suivi des avis',
+  'Revenus non optimisés',
+];
+
+const compareRight = [
+  'Annonces optimisées multi-plateformes',
+  'Tarification dynamique quotidienne',
+  'Accueil 24/7 par notre équipe',
+  'Ménage hôtelier inclus',
+  'Gestion des avis et note d\'excellence',
+  '+25% de revenus en moyenne',
+];
+
 const faq = [
   {
     q: 'Y a-t-il des frais cachés ?',
@@ -49,9 +91,23 @@ const faq = [
   },
   {
     q: 'Et si mon bien ne génère pas de revenus ?',
-    a: 'Vous ne payez rien. Notre commission ne s\'applique que sur les revenus effectivement générés.',
+    a: "Vous ne payez rien. Notre commission ne s'applique que sur les revenus effectivement générés.",
   },
 ];
+
+function CtaButton({ label }: { label: string }) {
+  return (
+    <Link
+      to="/discutons"
+      className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
+    >
+      <span>{label}</span>
+      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </Link>
+  );
+}
 
 function TarifsPage() {
   useEffect(() => {
@@ -62,6 +118,7 @@ function TarifsPage() {
     <div className="min-h-screen bg-white text-elegant-black">
       <Header />
       <main className="pb-20">
+        {/* Hero vidéo */}
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
           <video
             autoPlay
@@ -86,10 +143,18 @@ function TarifsPage() {
           </div>
         </section>
 
+        {/* CTA immédiat */}
+        <section className="bg-elegant-gray border-b border-gray-200">
+          <div className="container mx-auto px-4 sm:px-6 max-w-3xl py-10 text-center">
+            <h2 className="font-playfair text-2xl sm:text-3xl font-bold mb-5 text-elegant-black">
+              Obtenez votre estimation gratuite en 48h
+            </h2>
+            <CtaButton label="Discutons de votre projet" />
+          </div>
+        </section>
+
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl pt-16">
-
-
-          {/* Pricing card */}
+          {/* Carte tarif */}
           <div className="max-w-3xl mx-auto">
             <div className="bg-white p-10 md:p-14 shadow-lg border border-gray-100 text-center">
               <div className="mb-6">
@@ -98,9 +163,12 @@ function TarifsPage() {
                   de commission sur les revenus locatifs générés
                 </p>
               </div>
-              <div className="flex justify-center mb-8">
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
                 <span className="inline-block bg-elegant-black text-white text-sm font-semibold px-4 py-2 rounded-full tracking-wide">
                   Sans engagement
+                </span>
+                <span className="inline-block bg-elegant-black text-white text-sm font-semibold px-4 py-2 rounded-full tracking-wide">
+                  Aucun frais caché
                 </span>
               </div>
               <div className="h-px w-16 bg-gray-300 mx-auto mb-8" />
@@ -112,75 +180,80 @@ function TarifsPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                to="/discutons"
-                className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
-              >
-                <span>Demander une estimation gratuite</span>
-                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <CtaButton label="Demander une estimation gratuite" />
             </div>
           </div>
 
-          {/* Comparatif */}
+          {/* Comment ça marche */}
           <section className="mt-20">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
-              Comparatif
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-12">
+              Comment ça marche
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-8 border border-gray-200">
-                <h3 className="font-playfair text-xl font-bold mb-5 text-elegant-black">Gestion seule</h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex gap-2"><span className="text-gray-400">•</span>Annonces non optimisées</li>
-                  <li className="flex gap-2"><span className="text-gray-400">•</span>Tarifs fixes (pas de yield management)</li>
-                  <li className="flex gap-2"><span className="text-gray-400">•</span>Gestion des voyageurs par vous-même</li>
-                  <li className="flex gap-2"><span className="text-gray-400">•</span>Ménage à organiser</li>
-                  <li className="flex gap-2"><span className="text-gray-400">•</span>Pas de suivi des avis</li>
-                  <li className="flex gap-2 pt-3 border-t border-gray-200 mt-3 font-semibold text-elegant-black"><span>Revenus estimés : X€/mois</span></li>
-                </ul>
-              </div>
-              <div className="bg-elegant-black text-white p-8 border border-elegant-black">
-                <h3 className="font-playfair text-xl font-bold mb-5">Avec L'Intendant</h3>
-                <ul className="space-y-3 text-white/85">
-                  <li className="flex gap-2"><span className="text-white">✓</span>Annonces pro multi-plateformes</li>
-                  <li className="flex gap-2"><span className="text-white">✓</span>Tarification dynamique</li>
-                  <li className="flex gap-2"><span className="text-white">✓</span>Accueil 24/7</li>
-                  <li className="flex gap-2"><span className="text-white">✓</span>Ménage hôtelier inclus</li>
-                  <li className="flex gap-2"><span className="text-white">✓</span>Gestion des avis</li>
-                  <li className="flex gap-2 pt-3 border-t border-white/20 mt-3 font-semibold text-white"><span>Revenus estimés : X€/mois (+25%)</span></li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section className="mt-20 max-w-3xl mx-auto">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
-              Questions fréquentes
-            </h2>
-            <div className="space-y-5">
-              {faq.map((item, i) => (
-                <div key={i} className="bg-white p-6 md:p-7 border border-gray-200">
-                  <h3 className="font-playfair text-lg font-bold mb-2 text-elegant-black">{item.q}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.a}</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {steps.map((s) => (
+                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200">
+                  <p className="font-playfair text-4xl font-bold text-elegant-black/20 mb-3">{s.n}</p>
+                  <h3 className="font-playfair text-xl font-bold mb-3 text-elegant-black">{s.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{s.text}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          <div className="text-center mt-14">
-            <Link
-              to="/discutons"
-              className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
-            >
-              <span>Demander une estimation gratuite</span>
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+          {/* Comparatif */}
+          <section className="mt-20">
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-12">
+              Comparatif
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
+              <div className="bg-gray-50 p-8 border border-gray-200 opacity-90">
+                <h3 className="font-playfair text-xl font-bold mb-5 text-gray-600">Gestion seule</h3>
+                <ul className="space-y-3 text-gray-500">
+                  {compareLeft.map((t, i) => (
+                    <li key={i} className="flex gap-2"><span className="text-gray-400">•</span>{t}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="relative bg-elegant-black text-white p-8 border-2 border-amber-400 shadow-xl">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-elegant-black text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
+                  Recommandé
+                </span>
+                <h3 className="font-playfair text-xl font-bold mb-5 text-amber-400">Avec L'Intendant</h3>
+                <ul className="space-y-3 text-white/90">
+                  {compareRight.map((t, i) => (
+                    <li key={i} className="flex gap-2"><span className="text-amber-400">✓</span>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ accordéon */}
+          <section className="mt-20 max-w-3xl mx-auto">
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
+              Questions fréquentes
+            </h2>
+            <Accordion type="single" collapsible className="space-y-3">
+              {faq.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-gray-200 px-5">
+                  <AccordionTrigger className="font-playfair text-lg font-bold text-elegant-black text-left">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+
+          {/* CTA final */}
+          <section className="mt-20 text-center bg-elegant-gray p-10 md:p-14 border border-gray-200">
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-6 text-elegant-black">
+              Prêt à maximiser vos revenus ?
+            </h2>
+            <CtaButton label="Discutons de votre projet" />
+          </section>
         </div>
       </main>
       <Footer />
