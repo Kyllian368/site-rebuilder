@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from '@tanstack/react-router';
+import statsVideo from '@/assets/toulouse-hero.mp4.asset.json';
 
 
 const StatsSection = () => {

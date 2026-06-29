@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import expertiseVideo from '@/assets/toulouse-hero-3.mp4.asset.json';
 
 const ExpertiseSection = () => {
   useEffect(() => {
