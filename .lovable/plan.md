@@ -1,56 +1,24 @@
-## Objectif
-Deux chantiers en une fois :
-1. Améliorer le formulaire de la page **Discutons**.
-2. Afficher les vrais avis Google Business Profile sur la page d'accueil (section témoignages).
+## Diagnostic
 
----
+La page d'accueil n'est PAS cassée dans le code : tous les composants (Hero, About, Services, Pricing, Testimonials, Stats, Expertise, Footer) sont bien rendus côté serveur — je l'ai vérifié en lisant le DOM live de ton preview, et le HTML contient bien le contenu.
 
-## Partie 1 — Page Discutons (`src/routes/discutons.tsx`)
+Ce qui s'est passé : juste après la suppression du fichier `src/routes/comment-ca-marche.tsx`, Vite a eu une erreur transitoire de pre-transform parce que `routeTree.gen.ts` référençait encore le fichier supprimé (le plugin TanStack Router regénère ce fichier automatiquement, mais avec un léger délai). Pendant ces quelques secondes, ton onglet a chargé une version cassée et l'a probablement gardée en cache (chunk JS bloqué).
 
-1. **Téléphone obligatoire**
-   - Passer le champ `telephone` de facultatif à requis (label + astérisque + validation).
-2. **Champ "Veuillez préciser" si type de bien = Autre**
-   - Suivre la valeur du select `type_bien` via un `useState`.
-   - Si la valeur sélectionnée est `Autre`, afficher dynamiquement un champ texte `type_bien_autre` avec le label « Veuillez préciser ».
-   - Le rendre obligatoire dans ce cas (erreur de validation si vide).
-3. **Lien Calendly**
-   - Remplacer la constante vide par :
-     `CALENDLY_URL = 'https://calendly.com/lintendantconciergerie/30min'`
-   - L'iframe Calendly s'affichera automatiquement.
+Le fichier `routeTree.gen.ts` est maintenant propre (plus aucune référence à `comment-ca-marche`), et le serveur rend bien la home.
 
----
+## Plan
 
-## Partie 2 — Avis Google Business Profile
+1. **Redémarrer le dev server** pour purger les chunks Vite en mémoire et forcer une régénération propre du route tree.
+2. **Recharger l'onglet preview en hard reload** (Ctrl/Cmd+Shift+R) pour vider le cache client.
+3. **Vérifier visuellement** que la home affiche bien Hero → About → Services (4 cartes) → Pricing → Testimonials → Stats → Expertise → Footer.
 
-### Approche recommandée
-Google a fermé l'ancienne API publique « Google My Business ». La méthode simple et fiable aujourd'hui est de récupérer les avis via la **Places API (New)** de Google Maps Platform — disponible directement dans Lovable via le connecteur **Google Maps Platform** (pas besoin de gérer une clé API manuellement).
+## Ce qui ne change pas
 
-**Limite à connaître** : Places API renvoie au maximum **5 avis** (les plus récents/pertinents sélectionnés par Google) + la note moyenne + le nombre total d'avis. Pour récupérer la totalité des avis, il faudrait l'API « Business Profile » qui demande une validation Google manuelle de plusieurs semaines. Je recommande donc Places API.
+Aucune modification de code n'est nécessaire. Les changements du tour précédent restent en place :
+- `ContactSection` retirée de la home (volontaire)
+- Section Services réduite à 4 cartes (volontaire)
+- Route `/comment-ca-marche` supprimée (volontaire)
 
-### Plan d'implémentation
-1. **Connecter le connecteur Google Maps Platform** (via `standard_connectors--connect`). Aucun secret à fournir : Lovable gère la clé.
-2. **Récupérer le `place_id`** de votre fiche L'Intendant à Toulouse :
-   - Création d'une server function `findPlace` qui appelle `places:searchText` avec le nom de l'établissement et la ville.
-   - Une fois trouvé, on enregistre le `place_id` en dur dans le code (il est stable).
-3. **Server function `getGoogleReviews`** :
-   - Appelle `places/v1/places/{place_id}` via le gateway avec le field mask `reviews,rating,userRatingCount,googleMapsUri`.
-   - Cache mémoire serveur de ~6h pour éviter de taper l'API à chaque visite.
-   - En cas d'erreur, renvoie un fallback vide (la section affichera alors un message ou les avis statiques actuels).
-4. **Intégration dans `TestimonialsSection.tsx`** :
-   - Loader de la route `/` qui pré-charge les avis via TanStack Query.
-   - Affichage : note globale (étoiles + moyenne + nombre d'avis), puis les 5 avis (auteur, photo, note, texte, date relative).
-   - Bouton « Voir tous les avis sur Google » → lien `googleMapsUri`.
-   - Skeleton de chargement + fallback élégant si l'API échoue.
+## Si après hard reload la page est toujours blanche
 
-### Points à confirmer avant de lancer la Partie 2
-- **Nom exact de la fiche Google** à rechercher (ex : « L'Intendant Conciergerie Toulouse ») — pour trouver le bon `place_id` du premier coup.
-- OK pour la **limite de 5 avis** affichés ?
-- OK pour **connecter le connecteur Google Maps Platform** au projet (géré par Lovable, sans configuration de votre côté) ?
-
----
-
-## Fichiers concernés
-- `src/routes/discutons.tsx` (Partie 1)
-- nouveau `src/lib/google-reviews.functions.ts` (server function)
-- `src/components/TestimonialsSection.tsx` (affichage)
-- `src/routes/index.tsx` (loader)
+On bascule en mode debug : je regarde les erreurs runtime navigateur, les requêtes réseau qui échouent, et un screenshot Playwright headless pour voir ce que ton navigateur reçoit réellement.
