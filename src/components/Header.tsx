@@ -161,13 +161,6 @@ const Header = () => {
               Tarifs
             </Link>
             <Link
-              to="/comment-ca-marche"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
-            >
-              Comment ça marche
-            </Link>
-            <Link
               to="/faq"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
