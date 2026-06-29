@@ -23,7 +23,7 @@ const ServicesSection = () => {
 
   const services = [
     {
-      title: "Création & publication d'annonces",
+      title: "Création & optimisation d'annonces",
       description: "Optimisation complète de vos annonces sur toutes les plateformes de location courte durée.",
       icon: "✦"
     },
@@ -33,18 +33,13 @@ const ServicesSection = () => {
       icon: "✦"
     },
     {
-      title: "Communication locataires 24/7",
-      description: "Accueil et assistance de vos hôtes à toute heure, dans toutes les langues.",
+      title: "Accueil voyageurs 24/7",
+      description: "Check-in/check-out 7j/7, remise des clés, état des lieux. Vos voyageurs accueillis avec professionnalisme.",
       icon: "✦"
     },
     {
-      title: "Gestion complète des séjours",
-      description: "Entrées/sorties, ménage professionnel, fourniture du linge de qualité hôtelière.",
-      icon: "✦"
-    },
-    {
-      title: "Suivi administratif",
-      description: "Gestion des paiements, résolution des litiges, déclaration taxe de séjour.",
+      title: "Ménage hôtelier & linge",
+      description: "Protocole de ménage hôtelier après chaque départ. Linge et serviettes fournis, lavés et repassés.",
       icon: "✦"
     }
   ];
