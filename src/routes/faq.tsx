@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
 import {
   Accordion,
   AccordionContent,
@@ -88,17 +89,33 @@ function FaqPage() {
   return (
     <div className="min-h-screen bg-white text-elegant-black">
       <Header />
-      <main className="pt-28 sm:pt-32 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-          <div className="text-center mb-14">
+      <main className="pb-20">
+        <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls={false}
+            src={heroVideo.url}
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            style={{ filter: 'grayscale(1)' }}
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative z-10 text-center px-4 max-w-3xl mx-auto text-white">
             <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl font-bold mb-5">
               Questions fréquentes
             </h1>
-            <div className="h-px w-16 bg-gray-300 mx-auto mb-5" />
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+            <div className="h-px w-16 bg-white/60 mx-auto mb-5" />
+            <p className="text-base sm:text-lg font-light leading-relaxed">
               Tout ce que vous devez savoir avant de nous confier votre bien.
             </p>
           </div>
+        </section>
+
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl pt-16">
+
 
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, i) => (
