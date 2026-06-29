@@ -41,7 +41,7 @@ function Index() {
       <TestimonialsSection />
       <StatsSection />
       <ExpertiseSection />
-      <ContactSection />
+      
       <Footer />
       <CookieBanner />
     </div>
