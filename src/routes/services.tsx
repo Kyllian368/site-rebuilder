@@ -49,6 +49,14 @@ const services = [
     text: "Réponses en moins d'une heure, avant, pendant et après le séjour. Gestion des imprévus, assistance multilingue, suivi des avis pour maintenir une note d'excellence sur toutes les plateformes.",
   },
   {
+    title: "Shooting photo & vidéo professionnel",
+    text: "Nous faisons appel à des photographes et vidéastes professionnels pour sublimer votre bien. Photos HDR haute qualité, vidéo de présentation, visite virtuelle : chaque visuel est pensé pour déclencher la réservation. Un bien avec des photos professionnelles génère en moyenne 40% de réservations en plus.",
+  },
+  {
+    title: "Home staging & conseil déco",
+    text: "Nous vous conseillons sur l'aménagement et la décoration de votre bien pour maximiser son attractivité auprès des voyageurs. Du choix du linge de lit au positionnement du mobilier, chaque détail est pensé pour une expérience 5 étoiles et des avis qui boostent vos réservations.",
+  },
+  {
     title: "Suivi administratif & maintenance",
     text: "Gestion des paiements, résolution des litiges, déclaration de la taxe de séjour, coordination des réparations avec des prestataires qualifiés. Reporting mensuel détaillé de vos revenus.",
   },
