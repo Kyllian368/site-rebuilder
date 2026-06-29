@@ -8,7 +8,7 @@ import PricingSection from '@/components/PricingSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import StatsSection from '@/components/StatsSection';
 import ExpertiseSection from '@/components/ExpertiseSection';
-import ContactSection from '@/components/ContactSection';
+
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 
@@ -41,7 +41,7 @@ function Index() {
       <TestimonialsSection />
       <StatsSection />
       <ExpertiseSection />
-      <ContactSection />
+      
       <Footer />
       <CookieBanner />
     </div>

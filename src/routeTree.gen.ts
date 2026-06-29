@@ -15,7 +15,6 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DiscutonsRouteImport } from './routes/discutons'
-import { Route as CommentCaMarcheRouteImport } from './routes/comment-ca-marche'
 import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -52,11 +51,6 @@ const DiscutonsRoute = DiscutonsRouteImport.update({
   path: '/discutons',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommentCaMarcheRoute = CommentCaMarcheRouteImport.update({
-  id: '/comment-ca-marche',
-  path: '/comment-ca-marche',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CgvRoute = CgvRouteImport.update({
   id: '/cgv',
   path: '/cgv',
@@ -81,7 +75,6 @@ const BlogIdRoute = BlogIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
-  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
   '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
@@ -94,7 +87,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
-  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
   '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
@@ -108,7 +100,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
-  '/comment-ca-marche': typeof CommentCaMarcheRoute
   '/discutons': typeof DiscutonsRoute
   '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
@@ -123,7 +114,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cgv'
-    | '/comment-ca-marche'
     | '/discutons'
     | '/faq'
     | '/politique-confidentialite'
@@ -136,7 +126,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cgv'
-    | '/comment-ca-marche'
     | '/discutons'
     | '/faq'
     | '/politique-confidentialite'
@@ -149,7 +138,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cgv'
-    | '/comment-ca-marche'
     | '/discutons'
     | '/faq'
     | '/politique-confidentialite'
@@ -163,7 +151,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
-  CommentCaMarcheRoute: typeof CommentCaMarcheRoute
   DiscutonsRoute: typeof DiscutonsRoute
   FaqRoute: typeof FaqRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
@@ -218,13 +205,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiscutonsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/comment-ca-marche': {
-      id: '/comment-ca-marche'
-      path: '/comment-ca-marche'
-      fullPath: '/comment-ca-marche'
-      preLoaderRoute: typeof CommentCaMarcheRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/cgv': {
       id: '/cgv'
       path: '/cgv'
@@ -259,7 +239,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
-  CommentCaMarcheRoute: CommentCaMarcheRoute,
   DiscutonsRoute: DiscutonsRoute,
   FaqRoute: FaqRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
