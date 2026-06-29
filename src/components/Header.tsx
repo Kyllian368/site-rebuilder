@@ -95,13 +95,6 @@ const Header = () => {
               Tarifs
             </Link>
             <Link
-              to="/comment-ca-marche"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
-            >
-              Comment ça marche
-            </Link>
-            <Link
               to="/faq"
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
