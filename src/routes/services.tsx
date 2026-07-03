@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
-import heroVideo from '@/assets/toulouse-hero.mp4.asset.json';
+import { ASSETS } from '@/lib/intendant-assets';
 
 export const Route = createFileRoute('/services')({
   head: () => ({
@@ -72,16 +72,13 @@ function ServicesPage() {
       <Header />
       <main className="pb-20">
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            controls={false}
-            src={heroVideo.url}
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
-            style={{ filter: 'grayscale(1)' }}
+          <img
+            src={ASSETS.pontNeufHd}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover grayscale"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 text-center px-4 max-w-3xl mx-auto text-white">
@@ -97,26 +94,38 @@ function ServicesPage() {
         </section>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl pt-16">
-
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="border-b border-gray-200">
             {services.map((s, i) => (
-              <article
-                key={i}
-                className="bg-white p-7 md:p-9 border border-gray-200 hover:shadow-lg transition-all duration-300"
-              >
-                <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-3 font-medium">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <h2 className="font-playfair text-xl sm:text-2xl font-bold mb-3 text-elegant-black">
-                  {s.title}
-                </h2>
-                <p className="text-gray-600 leading-relaxed">{s.text}</p>
-              </article>
+              <React.Fragment key={i}>
+                <article className="grid md:grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 border-t border-gray-200">
+                  <div className="md:col-span-5">
+                    <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-3 font-medium">
+                      {String(i + 1).padStart(2, '0')}
+                    </p>
+                    <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-elegant-black leading-tight">
+                      {s.title}
+                    </h2>
+                  </div>
+                  <div className="md:col-span-7">
+                    <p className="text-gray-600 leading-relaxed">{s.text}</p>
+                  </div>
+                </article>
+                {i === 3 && (
+                  <div className="py-8 md:py-10 border-t border-gray-200">
+                    <img
+                      src={ASSETS.saintSerninHd}
+                      alt="Basilique Saint-Sernin, Toulouse"
+                      className="w-full h-[200px] md:h-[260px] object-cover grayscale rounded-sm"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-16">
             <Link
               to="/discutons"
               className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"

@@ -9,6 +9,9 @@ import upload74fa9438 from "@/assets/intendant/upload-74fa9438.png.asset.json";
 import upload939f160b from "@/assets/intendant/upload-939f160b.png.asset.json";
 import uploadC0783b41 from "@/assets/intendant/upload-c0783b41.png.asset.json";
 import manege from "@/assets/intendant/manege.png.asset.json";
+import capitoleHd from "@/assets/intendant/toulouse-capitole-hd.jpg.asset.json";
+import saintSerninHd from "@/assets/intendant/toulouse-saint-sernin-hd.jpg.asset.json";
+import pontNeufHd from "@/assets/intendant/toulouse-pont-neuf-hd.jpg.asset.json";
 
 export const ASSETS = {
   logo: logoSmall.url,
@@ -22,6 +25,9 @@ export const ASSETS = {
   upload939f160b: upload939f160b.url,
   uploadC0783b41: uploadC0783b41.url,
   manege: manege.url,
+  capitoleHd: capitoleHd.url,
+  saintSerninHd: saintSerninHd.url,
+  pontNeufHd: pontNeufHd.url,
 };
 
 // Map original public paths -> CDN URLs (for direct substitution)
