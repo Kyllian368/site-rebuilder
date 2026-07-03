@@ -4,7 +4,7 @@ import { ASSETS } from '@/lib/intendant-assets';
 const kpis = [
   { value: '5', label: 'Biens gérés' },
   { value: '90%', label: "Taux d'occupation par bien" },
-  { value: '4/5', label: 'Note moyenne voyageurs' },
+  { value: '4.80/5', label: 'Note moyenne voyageurs' },
   { value: '2 ans', label: "Années d'expérience" },
 ];
 
