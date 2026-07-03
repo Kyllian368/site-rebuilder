@@ -16,7 +16,7 @@ const AboutHomeSection = () => {
   }, []);
 
   return (
-    <section id="apropos" className="py-20 bg-white">
+    <section id="apropos" className="py-24 md:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
@@ -31,7 +31,7 @@ const AboutHomeSection = () => {
           </div>
 
           <div className="animate-on-scroll">
-            <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4">
+            <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
               QUI SOMMES-NOUS
             </p>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">

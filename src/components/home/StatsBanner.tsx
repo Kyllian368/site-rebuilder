@@ -1,16 +1,26 @@
 import React from 'react';
+import { ASSETS } from '@/lib/intendant-assets';
 
 const kpis = [
-  { value: '[À COMPLÉTER]', label: 'Biens gérés' },
-  { value: '[À COMPLÉTER]', label: "Taux d'occupation moyen" },
-  { value: '[À COMPLÉTER]', label: 'Note moyenne voyageurs' },
-  { value: '[À COMPLÉTER]', label: "Années d'expérience" },
+  { value: '5', label: 'Biens gérés' },
+  { value: '90%', label: "Taux d'occupation par bien" },
+  { value: '4/5', label: 'Note moyenne voyageurs' },
+  { value: '2 ans', label: "Années d'expérience" },
 ];
 
 const StatsBanner = () => {
   return (
-    <section className="bg-elegant-black text-white py-16">
-      <div className="container mx-auto px-6">
+    <section className="relative overflow-hidden py-20 md:py-24 bg-elegant-black text-white">
+      <img
+        src={ASSETS.manege}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover grayscale"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {kpis.map((k, i) => (
             <div key={i} className="text-center">
