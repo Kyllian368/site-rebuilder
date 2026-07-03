@@ -191,7 +191,7 @@ function TarifsPage() {
                 ))}
               </ul>
               <div className="mt-auto">
-                <CtaButton label="Demander une estimation" variant="outline" />
+                <CtaButton label="Demander une estimation gratuite" variant="outline" />
               </div>
             </div>
 
