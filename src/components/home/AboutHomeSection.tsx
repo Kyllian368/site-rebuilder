@@ -20,10 +20,9 @@ const AboutHomeSection = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
-            {/* TODO: remplacer par une future photo d'équipe */}
             <img
-              src={ASSETS.capitoleHd}
-              alt="Toulouse, ville d'intervention de la conciergerie L'Intendant"
+              src={ASSETS.interieurSalon1}
+              alt="Intérieur soigné d'un logement géré par L'Intendant"
               className="w-full h-auto rounded-sm shadow-lg grayscale"
               loading="lazy"
               decoding="async"
