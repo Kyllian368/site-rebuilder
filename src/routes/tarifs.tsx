@@ -244,7 +244,7 @@ function TarifsPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {steps.map((s) => (
-                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200">
+                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200 hover:border-red-500 transition-colors duration-300">
                   <p className="font-playfair text-4xl font-bold text-elegant-black/20 mb-3">{s.n}</p>
                   <h3 className="font-playfair text-xl font-bold mb-3 text-elegant-black">{s.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{s.text}</p>
