@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
@@ -96,11 +96,8 @@ function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl pt-16">
           <div className="border-b border-gray-200">
             {services.map((s, i) => (
-              <>
-                <article
-                  key={i}
-                  className="grid md:grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 border-t border-gray-200"
-                >
+              <React.Fragment key={i}>
+                <article className="grid md:grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 border-t border-gray-200">
                   <div className="md:col-span-5">
                     <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-3 font-medium">
                       {String(i + 1).padStart(2, '0')}
@@ -114,7 +111,7 @@ function ServicesPage() {
                   </div>
                 </article>
                 {i === 3 && (
-                  <div key="break" className="py-8 md:py-10 border-t border-gray-200">
+                  <div className="py-8 md:py-10 border-t border-gray-200">
                     <img
                       src={ASSETS.saintSerninHd}
                       alt="Basilique Saint-Sernin, Toulouse"
@@ -124,7 +121,7 @@ function ServicesPage() {
                     />
                   </div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
 
