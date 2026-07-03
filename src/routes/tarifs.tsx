@@ -82,7 +82,7 @@ const resultats = [
   { value: '×3', label: 'Revenus potentiels vs location classique à l\'année' },
   { value: '+25%', label: 'De revenus vs une gestion en autonomie' },
   { value: '90%', label: 'Taux d\'occupation moyen par bien' },
-  { value: '4/5', label: 'Note moyenne voyageurs' },
+  { value: '4,80/5', label: 'Note moyenne voyageurs' },
 ];
 
 const faq = [
