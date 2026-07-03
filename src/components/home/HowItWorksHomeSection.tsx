@@ -36,7 +36,7 @@ const HowItWorksHomeSection = () => {
     <section className="py-24 md:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
-          <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
+          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4 uppercase">
             NOTRE MÉTHODE
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
@@ -47,7 +47,7 @@ const HowItWorksHomeSection = () => {
         <div className="grid md:grid-cols-3 gap-10 md:gap-8 mb-12">
           {steps.map((s, i) => (
             <div key={i} className="animate-on-scroll p-6 border border-transparent hover:border-red-500 transition-colors duration-300">
-              <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black mb-4 leading-none">
+              <div className="font-playfair text-6xl md:text-7xl font-normal text-[#941101] mb-4 leading-none">
                 {s.n}
               </div>
               <div className="h-px w-12 bg-gray-300 mb-5" />

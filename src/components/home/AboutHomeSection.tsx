@@ -30,7 +30,7 @@ const AboutHomeSection = () => {
           </div>
 
           <div className="animate-on-scroll">
-            <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
+            <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4 uppercase">
               QUI SOMMES-NOUS
             </p>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">

@@ -59,7 +59,7 @@ const WhyUsSection = () => {
     <section id="pourquoi" className="py-24 md:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
-          <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
+          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4 uppercase">
             POURQUOI L'INTENDANT
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
@@ -74,10 +74,10 @@ const WhyUsSection = () => {
           {items.map(({ Icon, title, text }, i) => (
             <div
               key={i}
-              className="bg-white p-8 border border-gray-100 hover:border-gray-300 transition-colors duration-300 animate-on-scroll"
+              className="bg-white p-8 border border-gray-100 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.10)] transition-all duration-300 animate-on-scroll"
             >
               <Icon
-                className="w-8 h-8 text-elegant-black mb-5"
+                className={`w-8 h-8 mb-5 ${i % 2 === 0 ? 'text-[#941101]' : 'text-elegant-black'}`}
                 strokeWidth={1.5}
               />
               <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
