@@ -43,10 +43,10 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-24 md:py-28 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll max-w-3xl mx-auto">
-          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4">
+          <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
             NOS SERVICES
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
@@ -61,10 +61,10 @@ const ServicesSection = () => {
           {services.map(({ Icon, title, description }, index) => (
             <div
               key={index}
-              className="bg-white p-8 group hover:shadow-lg transition-all duration-300 animate-on-scroll border border-gray-100 hover:border-[#941101]/30"
+              className="bg-white p-8 transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-gray-300"
             >
               <Icon
-                className="w-8 h-8 text-[#941101] mb-5 transition-transform duration-300 group-hover:scale-110"
+                className="w-8 h-8 text-elegant-black mb-5"
                 strokeWidth={1.5}
               />
               <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
