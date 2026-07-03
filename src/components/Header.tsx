@@ -64,7 +64,7 @@ const Header = () => {
               className="transition-opacity hover:opacity-80 -ml-2 sm:-ml-4"
             >
             <img 
-              src="/__l5e/assets-v1/c304b4f6-f6ff-4dc6-b32f-e2d3b86f5cb8/logo.png" 
+              src="/__l5e/assets-v1/2d3e117f-fe80-48d7-9e9b-d04f0448a9fe/logo.png" 
               alt="L'Intendant Toulouse" 
                 className="h-12 sm:h-16 w-auto"
             />
