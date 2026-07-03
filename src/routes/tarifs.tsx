@@ -216,9 +216,6 @@ function TarifsPage() {
                 <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
                   Sans engagement
                 </span>
-                <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
-                  Aucun frais caché
-                </span>
               </div>
               <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
               <ul className="text-left space-y-3 mb-8 flex-1">
