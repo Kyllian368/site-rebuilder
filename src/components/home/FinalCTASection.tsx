@@ -7,7 +7,7 @@ const FinalCTASection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="bg-white text-elegant-black border border-gray-200 rounded-2xl px-8 py-16 md:px-16 md:py-20 text-center max-w-5xl mx-auto shadow-sm">
-          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-5 uppercase">
+          <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-5 uppercase">
             CONTACTEZ-NOUS
           </p>
           <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-elegant-black">

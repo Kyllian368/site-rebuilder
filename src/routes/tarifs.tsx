@@ -185,7 +185,7 @@ function TarifsPage() {
               <ul className="text-left space-y-3 mb-8 flex-1">
                 {partielIncluded.map((s, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-[#941101] font-bold flex-shrink-0">✓</span>
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
                     <span>{s}</span>
                   </li>
                 ))}
@@ -197,7 +197,7 @@ function TarifsPage() {
 
             {/* Offre B - Gestion complète */}
             <div className="relative bg-white p-8 md:p-10 border-2 border-elegant-black shadow-lg flex flex-col text-center">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#941101] text-white text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-elegant-black text-white text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
                 Recommandé
               </span>
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
@@ -221,7 +221,7 @@ function TarifsPage() {
               <ul className="text-left space-y-3 mb-8 flex-1">
                 {completeIncluded.map((s, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-[#941101] font-bold flex-shrink-0">✓</span>
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
                     <span>{s}</span>
                   </li>
                 ))}
@@ -245,7 +245,7 @@ function TarifsPage() {
             <div className="grid md:grid-cols-3 gap-6">
               {steps.map((s) => (
                 <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200 hover:border-red-500 transition-colors duration-300">
-                  <p className="font-playfair text-4xl font-bold text-[#941101] mb-3">{s.n}</p>
+                  <p className="font-playfair text-4xl font-bold text-elegant-black/20 mb-3">{s.n}</p>
                   <h3 className="font-playfair text-xl font-bold mb-3 text-elegant-black">{s.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{s.text}</p>
                 </div>
