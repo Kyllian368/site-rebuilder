@@ -12,7 +12,7 @@ const StatsBanner = () => {
   return (
     <section className="relative overflow-hidden py-20 md:py-24 bg-elegant-black text-white">
       <img
-        src={ASSETS.manege}
+        src={ASSETS.pontNeufHd}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover grayscale"

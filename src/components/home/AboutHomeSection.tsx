@@ -22,7 +22,7 @@ const AboutHomeSection = () => {
           <div className="animate-on-scroll">
             {/* TODO: remplacer par une future photo d'équipe */}
             <img
-              src={ASSETS.capitoleBW}
+              src={ASSETS.capitoleHd}
               alt="Toulouse, ville d'intervention de la conciergerie L'Intendant"
               className="w-full h-auto rounded-sm shadow-lg grayscale"
               loading="lazy"
@@ -50,8 +50,7 @@ const AboutHomeSection = () => {
               interlocuteur qui vous connaît, vous et votre logement.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              [Votre prénom], fondateur — [À COMPLÉTER] ans d'expérience dans
-              la location courte durée à Toulouse.
+              <strong className="font-playfair font-semibold text-elegant-black">Kyllian, fondateur</strong> — 3 ans d'expérience dans la location courte durée à Toulouse.
             </p>
           </div>
         </div>

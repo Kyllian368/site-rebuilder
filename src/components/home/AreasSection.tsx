@@ -62,7 +62,7 @@ const AreasSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto animate-on-scroll">
           <div className="rounded-sm overflow-hidden border border-gray-200 min-h-[320px]">
             <img
-              src={ASSETS.ohToulouse}
+              src={ASSETS.saintSerninHd}
               alt="Basilique Saint-Sernin, Toulouse"
               className="w-full h-full object-cover grayscale"
               loading="lazy"
