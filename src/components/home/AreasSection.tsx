@@ -46,7 +46,7 @@ const AreasSection = () => {
     <section id="secteurs" className="py-24 md:py-28 bg-elegant-gray">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-14 animate-on-scroll">
-          <p className="text-xs tracking-[0.25em] text-gray-500 font-semibold mb-4 uppercase">
+          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4 uppercase">
             SECTEURS D'INTERVENTION
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
