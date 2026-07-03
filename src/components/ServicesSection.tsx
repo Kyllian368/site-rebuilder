@@ -61,7 +61,7 @@ const ServicesSection = () => {
           {services.map(({ Icon, title, description }, index) => (
             <div
               key={index}
-              className="bg-white p-8 transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-gray-300"
+              className="bg-white p-8 transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-red-500"
             >
               <Icon
                 className="w-8 h-8 text-elegant-black mb-5"

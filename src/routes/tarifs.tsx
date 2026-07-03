@@ -82,7 +82,7 @@ const resultats = [
   { value: '×3', label: 'Revenus potentiels vs location classique à l\'année' },
   { value: '+25%', label: 'De revenus vs une gestion en autonomie' },
   { value: '90%', label: 'Taux d\'occupation moyen par bien' },
-  { value: '4/5', label: 'Note moyenne voyageurs' },
+  { value: '4,80/5', label: 'Note moyenne voyageurs' },
 ];
 
 const faq = [
@@ -191,7 +191,7 @@ function TarifsPage() {
                 ))}
               </ul>
               <div className="mt-auto">
-                <CtaButton label="Demander une estimation" variant="outline" />
+                <CtaButton label="Demander une estimation gratuite" variant="outline" />
               </div>
             </div>
 
@@ -215,9 +215,6 @@ function TarifsPage() {
               <div className="flex flex-wrap justify-center gap-2 mb-6">
                 <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
                   Sans engagement
-                </span>
-                <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
-                  Aucun frais caché
                 </span>
               </div>
               <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
@@ -247,7 +244,7 @@ function TarifsPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {steps.map((s) => (
-                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200">
+                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200 hover:border-red-500 transition-colors duration-300">
                   <p className="font-playfair text-4xl font-bold text-elegant-black/20 mb-3">{s.n}</p>
                   <h3 className="font-playfair text-xl font-bold mb-3 text-elegant-black">{s.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{s.text}</p>
