@@ -9,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import heroVideo from '@/assets/toulouse-hero-3.mp4.asset.json';
+import { ASSETS } from '@/lib/intendant-assets';
 
 export const Route = createFileRoute('/tarifs')({
   head: () => ({
@@ -35,8 +35,8 @@ export const Route = createFileRoute('/tarifs')({
 
 const included = [
   'Création et optimisation de vos annonces',
-  'Shooting photo professionnel',
-  'Tarification dynamique (yield management)',
+  'Photos au rendu professionnel',
+  'Tarification dynamique',
   'Accueil des voyageurs 7j/7',
   'Ménage hôtelier & linge fourni',
   'Communication voyageurs 24/7',
@@ -53,7 +53,7 @@ const steps = [
   {
     n: '02',
     title: 'Mise en place clé en main',
-    text: "Shooting photo professionnel, rédaction et publication des annonces, paramétrage de la tarification dynamique, équipement du bien (linge, accessoires, boîte à clés).",
+    text: "Des photos au rendu professionnel, rédaction et publication des annonces, paramétrage de la tarification dynamique, équipement du bien (linge, accessoires, boîte à clés).",
   },
   {
     n: '03',
@@ -62,28 +62,33 @@ const steps = [
   },
 ];
 
-const compareLeft = [
-  'Annonces basiques',
-  'Tarifs fixes toute l\'année',
-  'Vous gérez les voyageurs',
-  'Ménage à organiser vous-même',
-  'Aucun suivi des avis',
-  'Revenus non optimisés',
+const partielIncluded = [
+  'Création & optimisation de votre annonce (Airbnb, Booking…)',
+  'Tarification dynamique',
+  'Gestion du calendrier & des réservations',
+  'Reporting mensuel détaillé',
 ];
 
-const compareRight = [
-  'Annonces optimisées multi-plateformes',
-  'Tarification dynamique quotidienne',
-  'Accueil 24/7 par notre équipe',
-  'Ménage hôtelier inclus',
-  'Gestion des avis et note d\'excellence',
-  '+25% de revenus en moyenne',
+const completeIncluded = [
+  'Tout ce qui est inclus dans la Gestion partielle',
+  'Accueil des voyageurs 7j/7',
+  'Ménage hôtelier & linge fourni',
+  'Communication voyageurs 24/7',
+  'Maintenance & gestion des imprévus',
+  'Photos au rendu professionnel',
+];
+
+const resultats = [
+  { value: '×3', label: 'Revenus potentiels vs location classique à l\'année' },
+  { value: '+25%', label: 'De revenus vs une gestion en autonomie' },
+  { value: '90%', label: 'Taux d\'occupation moyen par bien' },
+  { value: '4/5', label: 'Note moyenne voyageurs' },
 ];
 
 const faq = [
   {
     q: 'Y a-t-il des frais cachés ?',
-    a: "Non, la commission de 20% couvre l'intégralité de nos services. Aucun abonnement, aucun frais d'entrée.",
+    a: "Non, la commission couvre l'intégralité des services de la formule choisie. Aucun abonnement, aucun frais d'entrée.",
   },
   {
     q: 'Quand suis-je payé ?',
@@ -95,11 +100,15 @@ const faq = [
   },
 ];
 
-function CtaButton({ label }: { label: string }) {
+function CtaButton({ label, variant = 'dark' }: { label: string; variant?: 'dark' | 'outline' }) {
+  const classes =
+    variant === 'dark'
+      ? 'bg-elegant-black text-white border border-gray-800 hover:shadow-xl'
+      : 'bg-white text-elegant-black border border-elegant-black hover:bg-elegant-black hover:text-white';
   return (
     <Link
       to="/discutons"
-      className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
+      className={`inline-flex items-center gap-2 ${classes} px-8 py-4 text-base font-semibold rounded-lg shadow-md hover:scale-105 transition-all duration-300 group`}
     >
       <span>{label}</span>
       <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,18 +127,15 @@ function TarifsPage() {
     <div className="min-h-screen bg-white text-elegant-black">
       <Header />
       <main className="pb-20">
-        {/* Hero vidéo */}
+        {/* Hero photo */}
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            controls={false}
-            src={heroVideo.url}
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
-            style={{ filter: 'grayscale(1)' }}
+          <img
+            src={ASSETS.interieurSalon2}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover grayscale"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 text-center px-4 max-w-3xl mx-auto text-white">
@@ -153,36 +159,86 @@ function TarifsPage() {
           </div>
         </section>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl pt-16">
-          {/* Carte tarif */}
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white p-10 md:p-14 shadow-lg border border-gray-100 text-center">
-              <div className="mb-6">
-                <span className="font-playfair text-7xl md:text-8xl font-bold text-elegant-black">20%</span>
-                <p className="text-lg md:text-xl text-gray-700 mt-3">
-                  de commission sur les revenus locatifs générés
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
+          {/* Deux offres */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+            {/* Offre A - Gestion partielle */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
+                Gestion partielle
+              </p>
+              <div className="mb-4">
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">10%</span>
+                <p className="text-sm md:text-base text-gray-600 mt-2">
+                  de commission sur les revenus générés
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-3 mb-8">
-                <span className="inline-block bg-elegant-black text-white text-sm font-semibold px-4 py-2 rounded-full tracking-wide">
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                Vous gardez l'accueil et le ménage, on optimise toute la partie en ligne.
+              </p>
+              <div className="flex justify-center mb-6">
+                <span className="inline-block border border-gray-300 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
                   Sans engagement
                 </span>
-                <span className="inline-block bg-elegant-black text-white text-sm font-semibold px-4 py-2 rounded-full tracking-wide">
-                  Aucun frais caché
-                </span>
               </div>
-              <div className="h-px w-16 bg-gray-300 mx-auto mb-8" />
-              <ul className="text-left space-y-4 mb-10 max-w-md mx-auto">
-                {included.map((s, i) => (
+              <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
+              <ul className="text-left space-y-3 mb-8 flex-1">
+                {partielIncluded.map((s, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-elegant-black font-bold text-lg flex-shrink-0">✓</span>
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
                     <span>{s}</span>
                   </li>
                 ))}
               </ul>
-              <CtaButton label="Demander une estimation gratuite" />
+              <div className="mt-auto">
+                <CtaButton label="Demander une estimation" variant="outline" />
+              </div>
+            </div>
+
+            {/* Offre B - Gestion complète */}
+            <div className="relative bg-white p-8 md:p-10 border-2 border-elegant-black shadow-lg flex flex-col text-center">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-elegant-black text-white text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
+                Recommandé
+              </span>
+              <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
+                Gestion complète
+              </p>
+              <div className="mb-4">
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">20%</span>
+                <p className="text-sm md:text-base text-gray-600 mt-2">
+                  de commission sur les revenus générés
+                </p>
+              </div>
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                On s'occupe de tout, de A à Z. Vous n'avez plus rien à gérer.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-6">
+                <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+                  Sans engagement
+                </span>
+                <span className="inline-block bg-elegant-black text-white text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+                  Aucun frais caché
+                </span>
+              </div>
+              <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
+              <ul className="text-left space-y-3 mb-8 flex-1">
+                {completeIncluded.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto">
+                <CtaButton label="Demander une estimation gratuite" />
+              </div>
             </div>
           </div>
+
+          {/* Détail des services inclus (garde pour référence globale) */}
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Tous nos services : {included.join(' · ')}.
+          </p>
 
           {/* Comment ça marche */}
           <section className="mt-20">
@@ -200,35 +256,36 @@ function TarifsPage() {
             </div>
           </section>
 
-          {/* Comparatif */}
+          {/* Résultats chiffrés */}
           <section className="mt-20">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-12">
-              Comparatif
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-4">
+              Ce que ça change pour vous
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              <div className="bg-gray-50 p-8 border border-gray-200 opacity-90">
-                <h3 className="font-playfair text-xl font-bold mb-5 text-gray-600">Gestion seule</h3>
-                <ul className="space-y-3 text-gray-500">
-                  {compareLeft.map((t, i) => (
-                    <li key={i} className="flex gap-2"><span className="text-gray-400">•</span>{t}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="relative bg-elegant-black text-white p-8 border-2 border-amber-400 shadow-xl">
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-elegant-black text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
-                  Recommandé
-                </span>
-                <h3 className="font-playfair text-xl font-bold mb-5 text-amber-400">Avec L'Intendant</h3>
-                <ul className="space-y-3 text-white/90">
-                  {compareRight.map((t, i) => (
-                    <li key={i} className="flex gap-2"><span className="text-amber-400">✓</span>{t}</li>
-                  ))}
-                </ul>
-              </div>
+            <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+              Des résultats concrets, mesurés sur les biens que nous gérons au quotidien.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-gray-200">
+              {resultats.map((r, i) => (
+                <div
+                  key={i}
+                  className={`text-center py-8 md:py-10 px-4 ${
+                    i > 0 ? 'md:border-l border-gray-200' : ''
+                  } ${i === 1 || i === 3 ? 'border-l border-gray-200' : ''} ${
+                    i >= 2 ? 'border-t md:border-t-0 border-gray-200' : ''
+                  }`}
+                >
+                  <p className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black mb-3">
+                    {r.value}
+                  </p>
+                  <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider leading-relaxed">
+                    {r.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* FAQ accordéon */}
+          {/* FAQ */}
           <section className="mt-20 max-w-3xl mx-auto">
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
               Questions fréquentes

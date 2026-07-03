@@ -33,7 +33,7 @@ const services = [
     text: "Nous créons ou reprenons vos annonces sur toutes les plateformes (Airbnb, Booking, Abritel, Expedia). Photos professionnelles, descriptions optimisées pour le référencement, mise en valeur de votre bien pour maximiser les réservations.",
   },
   {
-    title: "Tarification dynamique (yield management)",
+    title: "Tarification dynamique",
     text: "Nos outils ajustent vos tarifs quotidiennement selon la saisonnalité, les événements locaux (Fête de la Violette, match du Stade Toulousain, Toulouse Tech Week) et la concurrence. Résultat : un taux d'occupation optimisé et des revenus maximisés.",
   },
   {
@@ -49,8 +49,8 @@ const services = [
     text: "Réponses en moins d'une heure, avant, pendant et après le séjour. Gestion des imprévus, assistance multilingue, suivi des avis pour maintenir une note d'excellence sur toutes les plateformes.",
   },
   {
-    title: "Shooting photo & vidéo professionnel",
-    text: "Nous faisons appel à des photographes et vidéastes professionnels pour sublimer votre bien. Photos HDR haute qualité, vidéo de présentation, visite virtuelle : chaque visuel est pensé pour déclencher la réservation. Un bien avec des photos professionnelles génère en moyenne 40% de réservations en plus.",
+    title: "Photos au rendu professionnel",
+    text: "Des visuels soignés, pensés pour donner envie de réserver : cadrage, lumière et mise en scène qui subliment votre bien et le font ressortir parmi les annonces. Un logement mis en valeur, c'est directement plus de clics — et plus de réservations.",
   },
   {
     title: "Home staging & conseil déco",
