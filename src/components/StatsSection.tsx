@@ -154,7 +154,7 @@ const StatsSection = () => {
 
           <div className="mt-10">
             <Link
-              to="/comment-ca-marche"
+              to="/tarifs"
               className="inline-flex items-center gap-2 text-elegant-black font-semibold border-b-2 border-elegant-black pb-1 hover:gap-3 transition-all duration-300"
             >
               <span>En savoir plus</span>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from '@tanstack/react-router';
-
+import { ClipboardList, Sparkles, LineChart, ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   useEffect(() => {
@@ -23,94 +23,76 @@ const ServicesSection = () => {
 
   const services = [
     {
-      title: "Création & optimisation d'annonces",
-      description: "Optimisation complète de vos annonces sur toutes les plateformes de location courte durée.",
-      icon: "✦"
+      Icon: ClipboardList,
+      title: 'Gestion complète de votre location',
+      description:
+        'Mise en ligne, réservations, accueil voyageurs, ménage et linge : tout est pris en charge.',
     },
     {
-      title: "Tarification dynamique",
-      description: "Yield management professionnel pour maximiser vos revenus selon la demande.",
-      icon: "✦"
+      Icon: Sparkles,
+      title: 'Entretien & valorisation du logement',
+      description:
+        'Ménage hôtelier, maintenance et petits travaux pour garder votre bien impeccable.',
     },
     {
-      title: "Accueil voyageurs 24/7",
-      description: "Check-in/check-out 7j/7, remise des clés, état des lieux. Vos voyageurs accueillis avec professionnalisme.",
-      icon: "✦"
+      Icon: LineChart,
+      title: 'Optimisation de la rentabilité',
+      description:
+        'Tarification dynamique et annonces optimisées pour maximiser vos revenus.',
     },
-    {
-      title: "Ménage hôtelier & linge",
-      description: "Protocole de ménage hôtelier après chaque départ. Linge et serviettes fournis, lavés et repassés.",
-      icon: "✦"
-    }
   ];
 
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-on-scroll">
+        <div className="text-center mb-16 animate-on-scroll max-w-3xl mx-auto">
+          <p className="text-xs tracking-[0.25em] text-[#941101] font-semibold mb-4">
+            NOS SERVICES
+          </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
-            Nos services
+            Nos services principaux
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            <strong>Votre bien. Notre expertise. Vos revenus maximisés !</strong>
-            <br />
-            Notre connaissance du marché toulousain nous permet d'adapter nos stratégies 
-            pour maximiser votre taux d'occupation et vos revenus locatifs.
+          <p className="text-lg text-gray-600">
+            Une prise en charge complète, pensée pour les propriétaires exigeants.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div 
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {services.map(({ Icon, title, description }, index) => (
+            <div
               key={index}
-              className="bg-white p-8 group hover:shadow-lg transition-all duration-300 animate-on-scroll border border-gray-100 hover:border-[#8B0000]/20"
+              className="bg-white p-8 group hover:shadow-lg transition-all duration-300 animate-on-scroll border border-gray-100 hover:border-[#941101]/30"
             >
-              <div className="text-3xl text-gray-700 mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:text-[#8B0000]/80">
-                {service.icon}
-              </div>
-              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-4 group-hover:text-[#8B0000]/90">
-                {service.title}
+              <Icon
+                className="w-8 h-8 text-[#941101] mb-5 transition-transform duration-300 group-hover:scale-110"
+                strokeWidth={1.5}
+              />
+              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
+                {title}
               </h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700">
-                {service.description}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center animate-on-scroll">
-          <p className="text-lg text-gray-700 mb-8 max-w-4xl mx-auto">
-            Chaque propriétaire et chaque bien sont uniques. Nous adaptons nos services à vos besoins, 
-            que vous soyez un investisseur aguerri ou un particulier souhaitant rentabiliser un logement.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-elegant-black text-white p-6 text-center border border-gray-200">
-              <h4 className="font-playfair text-lg font-semibold mb-2">Assistance rapide et efficace</h4>
-            </div>
-            <div className="bg-elegant-black text-white p-6 text-center border border-gray-200">
-              <h4 className="font-playfair text-lg font-semibold mb-2">Optimisation des annonces</h4>
-            </div>
-            <div className="bg-elegant-black text-white p-6 text-center border border-gray-200">
-              <h4 className="font-playfair text-lg font-semibold mb-2">Gestion locative simplifiée</h4>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
-            >
-              <span>Découvrir tous nos services</span>
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 border border-elegant-black text-elegant-black px-8 py-4 text-base font-semibold rounded-lg hover:bg-elegant-black hover:text-white transition-all duration-300 group"
+          >
+            <span>Voir tous nos services</span>
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            to="/discutons"
+            className="inline-flex items-center gap-2 bg-elegant-black text-white px-8 py-4 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group border border-gray-800"
+          >
+            <span>Demander une estimation gratuite</span>
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
-
   );
 };
 
