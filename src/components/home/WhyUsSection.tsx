@@ -77,7 +77,7 @@ const WhyUsSection = () => {
               className="group bg-white p-8 border border-gray-100 hover:border-[#941101] transition-colors duration-300 animate-on-scroll"
             >
               <Icon
-                className="w-8 h-8 text-elegant-black group-hover:text-[#941101] transition-colors mb-5"
+                className="w-8 h-8 text-elegant-black group-hover:text-[#941101] group-hover:-translate-x-1 transition-all duration-300 mb-5"
                 strokeWidth={1.5}
               />
               <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
