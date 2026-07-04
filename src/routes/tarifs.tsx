@@ -192,8 +192,8 @@ function TarifsPage() {
         </section>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
-          {/* Deux offres */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {/* Trois offres */}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {/* Offre A - Gestion partielle */}
             <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
@@ -262,12 +262,60 @@ function TarifsPage() {
                 <CtaButton label="Demander une estimation gratuite" />
               </div>
             </div>
+
+            {/* Offre C - Gestion sur mesure */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
+                Gestion sur mesure
+              </p>
+              <div className="mb-4">
+                <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
+                <p className="text-sm md:text-base text-gray-600 mt-2">
+                  À partir de vos besoins
+                </p>
+              </div>
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                Vous souhaitez uniquement le ménage, les check-in, la gestion des voyageurs, ou une combinaison de plusieurs services ? Nous construisons une offre adaptée à votre logement et à votre organisation.
+              </p>
+              <div className="flex justify-center mb-6">
+                <span className="inline-block border border-gray-300 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+                  Sans engagement
+                </span>
+              </div>
+              <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
+              <ul className="text-left space-y-3 mb-8 flex-1">
+                {surMesureIncluded.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto">
+                <CtaButton label="Discutons de votre projet" variant="outline" />
+              </div>
+            </div>
+          </div>
+
+          {/* Bloc "idéale pour" */}
+          <div className="mt-10 max-w-2xl mx-auto text-center">
+            <h3 className="font-playfair text-xl text-elegant-black mb-4">
+              La formule sur mesure est idéale pour :
+            </h3>
+            <ul className="text-gray-600 space-y-2 text-left inline-block">
+              <li>• vous habitez à Toulouse et voulez juste le ménage</li>
+              <li>• vous gérez Airbnb mais pas Booking</li>
+              <li>• vous voulez seulement les check-in</li>
+              <li>• une résidence secondaire</li>
+              <li>• vous avez déjà votre femme de ménage</li>
+            </ul>
           </div>
 
           {/* Détail des services inclus (garde pour référence globale) */}
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-10">
             Tous nos services : {included.join(' · ')}.
           </p>
+
 
           {/* Comment ça marche */}
           <section className="mt-20">
