@@ -13,7 +13,6 @@ import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DiscutonsRouteImport } from './routes/discutons'
 import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as IndexRouteImport } from './routes/index'
@@ -41,11 +40,6 @@ const PolitiqueConfidentialiteRoute =
     path: '/politique-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DiscutonsRoute = DiscutonsRouteImport.update({
   id: '/discutons',
   path: '/discutons',
@@ -76,7 +70,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
-  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -88,7 +81,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
-  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -101,7 +93,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/discutons': typeof DiscutonsRoute
-  '/faq': typeof FaqRoute
   '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -115,7 +106,6 @@ export interface FileRouteTypes {
     | '/'
     | '/cgv'
     | '/discutons'
-    | '/faq'
     | '/politique-confidentialite'
     | '/services'
     | '/sitemap.xml'
@@ -127,7 +117,6 @@ export interface FileRouteTypes {
     | '/'
     | '/cgv'
     | '/discutons'
-    | '/faq'
     | '/politique-confidentialite'
     | '/services'
     | '/sitemap.xml'
@@ -139,7 +128,6 @@ export interface FileRouteTypes {
     | '/'
     | '/cgv'
     | '/discutons'
-    | '/faq'
     | '/politique-confidentialite'
     | '/services'
     | '/sitemap.xml'
@@ -152,7 +140,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
   DiscutonsRoute: typeof DiscutonsRoute
-  FaqRoute: typeof FaqRoute
   PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -189,13 +176,6 @@ declare module '@tanstack/react-router' {
       path: '/politique-confidentialite'
       fullPath: '/politique-confidentialite'
       preLoaderRoute: typeof PolitiqueConfidentialiteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/discutons': {
@@ -240,7 +220,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
   DiscutonsRoute: DiscutonsRoute,
-  FaqRoute: FaqRoute,
   PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

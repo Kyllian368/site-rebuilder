@@ -94,13 +94,12 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <Link
-              to="/faq"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => scrollToSection('apropos')}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
-              FAQ
-            </Link>
+              Qui sommes-nous
+            </button>
             <button
               onClick={handleBlogClick}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
@@ -160,13 +159,12 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <Link
-              to="/faq"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => scrollToSection('apropos')}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
-              FAQ
-            </Link>
+              Qui sommes-nous
+            </button>
             <button
               onClick={handleBlogClick}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"

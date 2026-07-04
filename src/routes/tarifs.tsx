@@ -29,6 +29,20 @@ export const Route = createFileRoute('/tarifs')({
       { property: 'og:url', content: '/tarifs' },
     ],
     links: [{ rel: 'canonical', href: '/tarifs' }],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: TarifsPage,
 });
@@ -87,6 +101,10 @@ const resultats = [
 
 const faq = [
   {
+    q: 'Quelle est votre commission ?',
+    a: "Nous fonctionnons avec une commission de 20% sur les revenus locatifs générés, sans frais cachés ni abonnement. Vous ne payez que lorsque votre bien génère des revenus, et nos optimisations couvrent généralement bien plus que notre commission — en moyenne, nos propriétaires gagnent +25% par rapport à une gestion en autonomie.",
+  },
+  {
     q: 'Y a-t-il des frais cachés ?',
     a: "Non, la commission couvre l'intégralité des services de la formule choisie. Aucun abonnement, aucun frais d'entrée.",
   },
@@ -97,6 +115,14 @@ const faq = [
   {
     q: 'Et si mon bien ne génère pas de revenus ?',
     a: "Vous ne payez rien. Notre commission ne s'applique que sur les revenus effectivement générés.",
+  },
+  {
+    q: 'Quel niveau de revenus puis-je espérer ?',
+    a: "Cela dépend de votre bien et de sa localisation. À Toulouse, un appartement bien situé peut générer jusqu'à 3 fois les revenus d'une location classique. Lors de notre premier échange, nous vous remettons une estimation personnalisée basée sur nos données locales.",
+  },
+  {
+    q: "Y a-t-il une durée d'engagement ?",
+    a: "Non. Nous privilégions une relation de confiance, sans engagement de longue durée imposé. Les conditions précises vous sont présentées en toute transparence lors du rendez-vous.",
   },
 ];
 

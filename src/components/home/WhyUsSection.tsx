@@ -1,43 +1,43 @@
 import React, { useEffect } from 'react';
 import {
-  LayoutGrid,
-  MapPin,
-  Clock,
+  UserCheck,
+  Users,
+  Handshake,
+  LineChart,
+  Sparkles,
   ShieldCheck,
-  TrendingUp,
-  Smile,
 } from 'lucide-react';
 
 const items = [
   {
-    Icon: LayoutGrid,
-    title: 'Gestion complète',
-    text: "De A à Z : annonces, réservations, communication voyageurs, ménage et linge. Vous ne touchez à rien.",
+    Icon: UserCheck,
+    title: 'Un interlocuteur unique',
+    text: "Vous échangez avec une personne qui connaît réellement votre logement.",
   },
   {
-    Icon: MapPin,
-    title: 'Ancrage local',
-    text: 'Une équipe basée à Toulouse, réactive, qui connaît chaque quartier et le marché.',
+    Icon: Users,
+    title: 'Une gestion à taille humaine',
+    text: 'Nous privilégions la qualité du suivi plutôt que le volume de biens.',
   },
   {
-    Icon: Clock,
-    title: 'Disponibilité 7j/7',
-    text: 'Un interlocuteur joignable pour vous et pour vos voyageurs, tous les jours.',
+    Icon: Handshake,
+    title: 'Un réseau local fiable',
+    text: "Décorateurs d'intérieur, artisans, agents immobiliers et partenaires de confiance.",
+  },
+  {
+    Icon: LineChart,
+    title: 'Un suivi transparent',
+    text: 'Des revenus clairs, des retours réguliers et une visibilité sur les performances.',
+  },
+  {
+    Icon: Sparkles,
+    title: 'Un soin du détail',
+    text: "Chaque séjour est préparé avec exigence pour préserver vos avis et votre bien.",
   },
   {
     Icon: ShieldCheck,
-    title: 'Suivi du logement',
-    text: 'États des lieux, maintenance, petits travaux : on veille sur votre bien comme sur le nôtre.',
-  },
-  {
-    Icon: TrendingUp,
-    title: 'Revenus optimisés',
-    text: 'Tarification dynamique et calendrier ajusté en continu pour remplir vos nuitées au meilleur prix.',
-  },
-  {
-    Icon: Smile,
-    title: 'Sérénité du propriétaire',
-    text: 'Vous ne gérez rien au quotidien : vous encaissez et suivez tout à distance.',
+    title: 'Une vraie tranquillité',
+    text: 'Vous déléguez sans perdre le contrôle.',
   },
 ];
 
@@ -63,10 +63,10 @@ const WhyUsSection = () => {
             POURQUOI L'INTENDANT
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
-            Un partenaire complet pour votre location courte durée
+            Une gestion locale, humaine et vraiment impliquée
           </h2>
           <p className="text-lg text-gray-600">
-            Six engagements concrets qui font la différence au quotidien.
+            Six engagements concrets pour confier votre bien en toute sérénité.
           </p>
         </div>
 

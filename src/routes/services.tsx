@@ -4,6 +4,23 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import { ASSETS } from '@/lib/intendant-assets';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
+const faq = [
+  {
+    q: 'Je suis déjà sur Airbnb, pouvez-vous reprendre la gestion ?',
+    a: "Oui. Nous reprenons votre annonce existante, conservons votre historique et vos avis, puis optimisons le tout. La transition est transparente et sans interruption de vos réservations.",
+  },
+  {
+    q: 'Comment gérez-vous le ménage et le linge ?',
+    a: "Une équipe dédiée applique un protocole de niveau hôtelier après chaque départ. Le linge de maison et les serviettes sont fournis, lavés et repassés. Un contrôle qualité est réalisé avant chaque arrivée.",
+  },
+];
 
 export const Route = createFileRoute('/services')({
   head: () => ({
@@ -23,6 +40,20 @@ export const Route = createFileRoute('/services')({
       { property: 'og:url', content: '/services' },
     ],
     links: [{ rel: 'canonical', href: '/services' }],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
@@ -124,6 +155,25 @@ function ServicesPage() {
               </React.Fragment>
             ))}
           </div>
+
+          {/* FAQ */}
+          <section className="mt-20 max-w-3xl mx-auto">
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
+              Questions fréquentes
+            </h2>
+            <Accordion type="single" collapsible className="space-y-3">
+              {faq.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-gray-200 px-5">
+                  <AccordionTrigger className="font-playfair text-lg font-bold text-elegant-black text-left">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
 
           <div className="text-center mt-16">
             <Link
