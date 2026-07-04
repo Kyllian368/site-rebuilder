@@ -4,6 +4,23 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import { ASSETS } from '@/lib/intendant-assets';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
+const faq = [
+  {
+    q: 'Je suis déjà sur Airbnb, pouvez-vous reprendre la gestion ?',
+    a: "Oui. Nous reprenons votre annonce existante, conservons votre historique et vos avis, puis optimisons le tout. La transition est transparente et sans interruption de vos réservations.",
+  },
+  {
+    q: 'Comment gérez-vous le ménage et le linge ?',
+    a: "Une équipe dédiée applique un protocole de niveau hôtelier après chaque départ. Le linge de maison et les serviettes sont fournis, lavés et repassés. Un contrôle qualité est réalisé avant chaque arrivée.",
+  },
+];
 
 export const Route = createFileRoute('/services')({
   head: () => ({
