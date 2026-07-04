@@ -94,12 +94,13 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <button
-              onClick={() => scrollToSection('apropos')}
+            <Link
+              to="/qui-sommes-nous"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
               Qui sommes-nous
-            </button>
+            </Link>
             <button
               onClick={handleBlogClick}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
@@ -159,12 +160,13 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <button
-              onClick={() => scrollToSection('apropos')}
+            <Link
+              to="/qui-sommes-nous"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"
             >
               Qui sommes-nous
-            </button>
+            </Link>
             <button
               onClick={handleBlogClick}
               className="block w-full text-left py-3 px-2 text-elegant-black hover:bg-gray-50 transition-colors duration-300 font-medium"

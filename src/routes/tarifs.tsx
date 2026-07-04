@@ -50,7 +50,7 @@ export const Route = createFileRoute('/tarifs')({
 const included = [
   'Création et optimisation de vos annonces',
   'Photos au rendu professionnel',
-  'Tarification dynamique',
+  'Optimisation dynamique des prix',
   'Accueil des voyageurs 7j/7',
   'Ménage hôtelier & linge fourni',
   'Communication voyageurs 24/7',
@@ -67,7 +67,7 @@ const steps = [
   {
     n: '02',
     title: 'Mise en place clé en main',
-    text: "Des photos au rendu professionnel, rédaction et publication des annonces, paramétrage de la tarification dynamique, équipement du bien (linge, accessoires, boîte à clés).",
+    text: "Des photos au rendu professionnel, rédaction et publication des annonces, paramétrage de l'optimisation dynamique des prix, équipement du bien (linge, accessoires, boîte à clés).",
   },
   {
     n: '03',
@@ -78,7 +78,7 @@ const steps = [
 
 const partielIncluded = [
   'Création & optimisation de votre annonce (Airbnb, Booking…)',
-  'Tarification dynamique',
+  'Optimisation dynamique des prix',
   'Gestion du calendrier & des réservations',
   'Reporting mensuel détaillé',
 ];
@@ -92,11 +92,21 @@ const completeIncluded = [
   'Photos au rendu professionnel',
 ];
 
+const surMesureIncluded = [
+  'Gestion des voyageurs uniquement',
+  'Ménage & linge',
+  'Check-in / Check-out',
+  'Maintenance ponctuelle',
+  'Shooting photo',
+  'Optimisation de votre annonce',
+  'Prestations à la carte',
+];
+
 const resultats = [
   { value: '×3', label: 'Revenus potentiels vs location classique à l\'année' },
   { value: '+25%', label: 'De revenus vs une gestion en autonomie' },
   { value: '90%', label: 'Taux d\'occupation moyen par bien' },
-  { value: '4,80/5', label: 'Note moyenne voyageurs' },
+  { value: '4,82/5', label: 'Note moyenne voyageurs' },
 ];
 
 const faq = [
@@ -119,10 +129,6 @@ const faq = [
   {
     q: 'Quel niveau de revenus puis-je espérer ?',
     a: "Cela dépend de votre bien et de sa localisation. À Toulouse, un appartement bien situé peut générer jusqu'à 3 fois les revenus d'une location classique. Lors de notre premier échange, nous vous remettons une estimation personnalisée basée sur nos données locales.",
-  },
-  {
-    q: "Y a-t-il une durée d'engagement ?",
-    a: "Non. Nous privilégions une relation de confiance, sans engagement de longue durée imposé. Les conditions précises vous sont présentées en toute transparence lors du rendez-vous.",
   },
 ];
 
@@ -186,8 +192,8 @@ function TarifsPage() {
         </section>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
-          {/* Deux offres */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {/* Trois offres */}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {/* Offre A - Gestion partielle */}
             <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
@@ -256,12 +262,60 @@ function TarifsPage() {
                 <CtaButton label="Demander une estimation gratuite" />
               </div>
             </div>
+
+            {/* Offre C - Gestion sur mesure */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
+                Gestion sur mesure
+              </p>
+              <div className="mb-4">
+                <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
+                <p className="text-sm md:text-base text-gray-600 mt-2">
+                  À partir de vos besoins
+                </p>
+              </div>
+              <p className="text-gray-600 mb-5 leading-relaxed">
+                Vous souhaitez uniquement le ménage, les check-in, la gestion des voyageurs, ou une combinaison de plusieurs services ? Nous construisons une offre adaptée à votre logement et à votre organisation.
+              </p>
+              <div className="flex justify-center mb-6">
+                <span className="inline-block border border-gray-300 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+                  Sans engagement
+                </span>
+              </div>
+              <div className="h-px w-12 bg-gray-200 mx-auto mb-6" />
+              <ul className="text-left space-y-3 mb-8 flex-1">
+                {surMesureIncluded.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-700">
+                    <span className="text-elegant-black font-bold flex-shrink-0">✓</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto">
+                <CtaButton label="Discutons de votre projet" variant="outline" />
+              </div>
+            </div>
+          </div>
+
+          {/* Bloc "idéale pour" */}
+          <div className="mt-10 max-w-2xl mx-auto text-center">
+            <h3 className="font-playfair text-xl text-elegant-black mb-4">
+              La formule sur mesure est idéale pour :
+            </h3>
+            <ul className="text-gray-600 space-y-2 text-left inline-block">
+              <li>• vous habitez à Toulouse et voulez juste le ménage</li>
+              <li>• vous gérez Airbnb mais pas Booking</li>
+              <li>• vous voulez seulement les check-in</li>
+              <li>• une résidence secondaire</li>
+              <li>• vous avez déjà votre femme de ménage</li>
+            </ul>
           </div>
 
           {/* Détail des services inclus (garde pour référence globale) */}
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-10">
             Tous nos services : {included.join(' · ')}.
           </p>
+
 
           {/* Comment ça marche */}
           <section className="mt-20">
@@ -270,9 +324,10 @@ function TarifsPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {steps.map((s) => (
-                <div key={s.n} className="bg-white p-7 md:p-8 border border-gray-200 hover:border-red-500 transition-colors duration-300">
-                  <p className="font-playfair text-4xl font-bold text-elegant-black/20 mb-3">{s.n}</p>
-                  <h3 className="font-playfair text-xl font-bold mb-3 text-elegant-black">{s.title}</h3>
+                <div key={s.n} className="group p-6 border border-transparent hover:border-[#941101] transition-colors duration-300">
+                  <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black group-hover:text-[#941101] transition-colors mb-4 leading-none">{s.n}</div>
+                  <div className="h-px w-12 bg-gray-300 mb-5" />
+                  <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">{s.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{s.text}</p>
                 </div>
               ))}
