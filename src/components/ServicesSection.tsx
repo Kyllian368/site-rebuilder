@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ClipboardList, Sparkles, LineChart, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   useEffect(() => {
