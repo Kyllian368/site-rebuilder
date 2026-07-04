@@ -60,7 +60,7 @@ function Index() {
       </section>
 
       <AboutHomeSection />
-      <HomeFaqSection />
+      
       <FinalCTASection />
 
       <Footer />
