@@ -63,10 +63,10 @@ const WhyUsSection = () => {
             POURQUOI L'INTENDANT
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black mb-6">
-            Un partenaire complet pour votre location courte durée
+            Une gestion locale, humaine et vraiment impliquée
           </h2>
           <p className="text-lg text-gray-600">
-            Six engagements concrets qui font la différence au quotidien.
+            Six engagements concrets pour confier votre bien en toute sérénité.
           </p>
         </div>
 
