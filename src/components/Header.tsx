@@ -94,13 +94,12 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <Link
-              to="/faq"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => scrollToSection('apropos')}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
             >
-              FAQ
-            </Link>
+              Qui sommes-nous
+            </button>
             <button
               onClick={handleBlogClick}
               className="text-elegant-black hover:text-gray-600 transition-colors duration-300 font-medium"
