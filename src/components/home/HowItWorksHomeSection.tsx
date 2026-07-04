@@ -46,8 +46,8 @@ const HowItWorksHomeSection = () => {
 
         <div className="grid md:grid-cols-3 gap-10 md:gap-8 mb-12">
           {steps.map((s, i) => (
-            <div key={i} className="animate-on-scroll p-6 border border-transparent hover:border-red-500 transition-colors duration-300">
-              <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black mb-4 leading-none">
+            <div key={i} className="group animate-on-scroll p-6 border border-transparent hover:border-[#941101] transition-colors duration-300">
+              <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black group-hover:text-[#941101] transition-colors mb-4 leading-none">
                 {s.n}
               </div>
               <div className="h-px w-12 bg-gray-300 mb-5" />
