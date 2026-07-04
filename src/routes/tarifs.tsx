@@ -29,6 +29,20 @@ export const Route = createFileRoute('/tarifs')({
       { property: 'og:url', content: '/tarifs' },
     ],
     links: [{ rel: 'canonical', href: '/tarifs' }],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: TarifsPage,
 });
