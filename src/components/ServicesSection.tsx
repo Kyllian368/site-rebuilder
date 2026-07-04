@@ -23,19 +23,16 @@ const ServicesSection = () => {
 
   const services = [
     {
-      Icon: ClipboardList,
       title: 'Gestion complète de votre location',
       description:
         'Mise en ligne, réservations, accueil voyageurs, ménage et linge : tout est pris en charge.',
     },
     {
-      Icon: Sparkles,
       title: 'Entretien & valorisation du logement',
       description:
         'Ménage hôtelier, maintenance et petits travaux pour garder votre bien impeccable.',
     },
     {
-      Icon: LineChart,
       title: 'Optimisation de la rentabilité',
       description:
         'Tarification dynamique et annonces optimisées pour maximiser vos revenus.',
@@ -58,22 +55,27 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {services.map(({ Icon, title, description }, index) => (
+          {services.map(({ title, description }, index) => (
             <div
               key={index}
-              className="bg-white p-8 transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-red-500"
+              className="group bg-white p-8 rounded-lg shadow-sm transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-[#941101]/30"
             >
-              <Icon
-                className="w-8 h-8 text-elegant-black mb-5"
-                strokeWidth={1.5}
-              />
-              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
+              <span
+                className={`block text-2xl mb-5 leading-none ${
+                  index % 2 === 0 ? 'text-[#941101]' : 'text-elegant-black'
+                }`}
+                aria-hidden="true"
+              >
+                ✦
+              </span>
+              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3 transition-colors group-hover:text-[#941101]">
                 {title}
               </h3>
               <p className="text-gray-600 leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
+
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll">
           <Link
