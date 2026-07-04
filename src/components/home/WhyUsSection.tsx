@@ -1,45 +1,32 @@
 import React, { useEffect } from 'react';
-import {
-  LayoutGrid,
-  MapPin,
-  Clock,
-  ShieldCheck,
-  TrendingUp,
-  Smile,
-} from 'lucide-react';
 
 const items = [
   {
-    Icon: LayoutGrid,
     title: 'Gestion complète',
     text: "De A à Z : annonces, réservations, communication voyageurs, ménage et linge. Vous ne touchez à rien.",
   },
   {
-    Icon: MapPin,
     title: 'Ancrage local',
     text: 'Une équipe basée à Toulouse, réactive, qui connaît chaque quartier et le marché.',
   },
   {
-    Icon: Clock,
     title: 'Disponibilité 7j/7',
     text: 'Un interlocuteur joignable pour vous et pour vos voyageurs, tous les jours.',
   },
   {
-    Icon: ShieldCheck,
     title: 'Suivi du logement',
     text: 'États des lieux, maintenance, petits travaux : on veille sur votre bien comme sur le nôtre.',
   },
   {
-    Icon: TrendingUp,
     title: 'Revenus optimisés',
     text: 'Tarification dynamique et calendrier ajusté en continu pour remplir vos nuitées au meilleur prix.',
   },
   {
-    Icon: Smile,
     title: 'Sérénité du propriétaire',
     text: 'Vous ne gérez rien au quotidien : vous encaissez et suivez tout à distance.',
   },
 ];
+
 
 const WhyUsSection = () => {
   useEffect(() => {
@@ -71,16 +58,20 @@ const WhyUsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {items.map(({ Icon, title, text }, i) => (
+          {items.map(({ title, text }, i) => (
             <div
               key={i}
-              className="bg-white p-8 border border-gray-100 hover:border-gray-300 transition-colors duration-300 animate-on-scroll"
+              className="group bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:border-[#941101]/30 transition-colors duration-300 animate-on-scroll"
             >
-              <Icon
-                className="w-8 h-8 text-elegant-black mb-5"
-                strokeWidth={1.5}
-              />
-              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
+              <span
+                className={`block text-2xl mb-5 leading-none ${
+                  i % 2 === 0 ? 'text-[#941101]' : 'text-elegant-black'
+                }`}
+                aria-hidden="true"
+              >
+                ✦
+              </span>
+              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3 transition-colors group-hover:text-[#941101]">
                 {title}
               </h3>
               <p className="text-gray-600 leading-relaxed">{text}</p>
