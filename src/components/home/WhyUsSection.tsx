@@ -1,45 +1,32 @@
 import React, { useEffect } from 'react';
-import {
-  LayoutGrid,
-  MapPin,
-  Clock,
-  ShieldCheck,
-  TrendingUp,
-  Smile,
-} from 'lucide-react';
 
 const items = [
   {
-    Icon: LayoutGrid,
     title: 'Gestion complète',
     text: "De A à Z : annonces, réservations, communication voyageurs, ménage et linge. Vous ne touchez à rien.",
   },
   {
-    Icon: MapPin,
     title: 'Ancrage local',
     text: 'Une équipe basée à Toulouse, réactive, qui connaît chaque quartier et le marché.',
   },
   {
-    Icon: Clock,
     title: 'Disponibilité 7j/7',
     text: 'Un interlocuteur joignable pour vous et pour vos voyageurs, tous les jours.',
   },
   {
-    Icon: ShieldCheck,
     title: 'Suivi du logement',
     text: 'États des lieux, maintenance, petits travaux : on veille sur votre bien comme sur le nôtre.',
   },
   {
-    Icon: TrendingUp,
     title: 'Revenus optimisés',
     text: 'Tarification dynamique et calendrier ajusté en continu pour remplir vos nuitées au meilleur prix.',
   },
   {
-    Icon: Smile,
     title: 'Sérénité du propriétaire',
     text: 'Vous ne gérez rien au quotidien : vous encaissez et suivez tout à distance.',
   },
 ];
+
 
 const WhyUsSection = () => {
   useEffect(() => {
