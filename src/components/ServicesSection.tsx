@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowRight } from 'lucide-react';
+import { ClipboardList, Sparkles, LineChart, ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   useEffect(() => {
@@ -23,16 +23,19 @@ const ServicesSection = () => {
 
   const services = [
     {
+      Icon: ClipboardList,
       title: 'Gestion complète de votre location',
       description:
         'Mise en ligne, réservations, accueil voyageurs, ménage et linge : tout est pris en charge.',
     },
     {
+      Icon: Sparkles,
       title: 'Entretien & valorisation du logement',
       description:
         'Ménage hôtelier, maintenance et petits travaux pour garder votre bien impeccable.',
     },
     {
+      Icon: LineChart,
       title: 'Optimisation de la rentabilité',
       description:
         'Tarification dynamique et annonces optimisées pour maximiser vos revenus.',
@@ -55,27 +58,22 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {services.map(({ title, description }, index) => (
+          {services.map(({ Icon, title, description }, index) => (
             <div
               key={index}
-              className="group bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:bg-elegant-black transition-colors duration-300 animate-on-scroll"
+              className="bg-white p-8 transition-colors duration-300 animate-on-scroll border border-gray-100 hover:border-red-500"
             >
-              <span
-                className="block text-2xl mb-5 leading-none text-elegant-black group-hover:text-white transition-colors"
-                aria-hidden="true"
-              >
-                ✦
-              </span>
-              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3 group-hover:text-white transition-colors">
+              <Icon
+                className="w-8 h-8 text-elegant-black mb-5"
+                strokeWidth={1.5}
+              />
+              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">
                 {title}
               </h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-300 transition-colors">
-                {description}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
-
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll">
           <Link
