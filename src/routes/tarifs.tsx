@@ -130,10 +130,6 @@ const faq = [
     q: 'Quel niveau de revenus puis-je espérer ?',
     a: "Cela dépend de votre bien et de sa localisation. À Toulouse, un appartement bien situé peut générer jusqu'à 3 fois les revenus d'une location classique. Lors de notre premier échange, nous vous remettons une estimation personnalisée basée sur nos données locales.",
   },
-  {
-    q: "Y a-t-il une durée d'engagement ?",
-    a: "Non. Nous privilégions une relation de confiance, sans engagement de longue durée imposé. Les conditions précises vous sont présentées en toute transparence lors du rendez-vous.",
-  },
 ];
 
 function CtaButton({ label, variant = 'dark' }: { label: string; variant?: 'dark' | 'outline' }) {
