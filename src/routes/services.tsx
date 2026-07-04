@@ -156,6 +156,25 @@ function ServicesPage() {
             ))}
           </div>
 
+          {/* FAQ */}
+          <section className="mt-20 max-w-3xl mx-auto">
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-center mb-10">
+              Questions fréquentes
+            </h2>
+            <Accordion type="single" collapsible className="space-y-3">
+              {faq.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-gray-200 px-5">
+                  <AccordionTrigger className="font-playfair text-lg font-bold text-elegant-black text-left">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+
           <div className="text-center mt-16">
             <Link
               to="/discutons"
