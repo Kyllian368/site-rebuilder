@@ -38,7 +38,6 @@ const FinalCTASection = () => {
 
           <p className="text-sm text-gray-500 mt-8">
             Estimation gratuite et sans engagement — réponse sous 48h.
-            Commission de 20%, sans frais cachés.
           </p>
         </div>
       </div>

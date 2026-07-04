@@ -61,20 +61,20 @@ const WhyUsSection = () => {
           {items.map(({ title, text }, i) => (
             <div
               key={i}
-              className="group bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:border-[#941101]/30 transition-colors duration-300 animate-on-scroll"
+              className="group bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:bg-elegant-black transition-colors duration-300 animate-on-scroll"
             >
               <span
-                className={`block text-2xl mb-5 leading-none ${
-                  i % 2 === 0 ? 'text-[#941101]' : 'text-elegant-black'
-                }`}
+                className="block text-2xl mb-5 leading-none text-elegant-black group-hover:text-white transition-colors"
                 aria-hidden="true"
               >
                 ✦
               </span>
-              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3 transition-colors group-hover:text-[#941101]">
+              <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3 group-hover:text-white transition-colors">
                 {title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">{text}</p>
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-300 transition-colors">
+                {text}
+              </p>
             </div>
           ))}
         </div>
