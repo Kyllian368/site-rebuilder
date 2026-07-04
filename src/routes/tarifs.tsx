@@ -50,7 +50,7 @@ export const Route = createFileRoute('/tarifs')({
 const included = [
   'Création et optimisation de vos annonces',
   'Photos au rendu professionnel',
-  'Tarification dynamique',
+  'Optimisation dynamique des prix',
   'Accueil des voyageurs 7j/7',
   'Ménage hôtelier & linge fourni',
   'Communication voyageurs 24/7',
@@ -67,7 +67,7 @@ const steps = [
   {
     n: '02',
     title: 'Mise en place clé en main',
-    text: "Des photos au rendu professionnel, rédaction et publication des annonces, paramétrage de la tarification dynamique, équipement du bien (linge, accessoires, boîte à clés).",
+    text: "Des photos au rendu professionnel, rédaction et publication des annonces, paramétrage de l'optimisation dynamique des prix, équipement du bien (linge, accessoires, boîte à clés).",
   },
   {
     n: '03',
@@ -78,7 +78,7 @@ const steps = [
 
 const partielIncluded = [
   'Création & optimisation de votre annonce (Airbnb, Booking…)',
-  'Tarification dynamique',
+  'Optimisation dynamique des prix',
   'Gestion du calendrier & des réservations',
   'Reporting mensuel détaillé',
 ];
@@ -92,11 +92,21 @@ const completeIncluded = [
   'Photos au rendu professionnel',
 ];
 
+const surMesureIncluded = [
+  'Gestion des voyageurs uniquement',
+  'Ménage & linge',
+  'Check-in / Check-out',
+  'Maintenance ponctuelle',
+  'Shooting photo',
+  'Optimisation de votre annonce',
+  'Prestations à la carte',
+];
+
 const resultats = [
   { value: '×3', label: 'Revenus potentiels vs location classique à l\'année' },
   { value: '+25%', label: 'De revenus vs une gestion en autonomie' },
   { value: '90%', label: 'Taux d\'occupation moyen par bien' },
-  { value: '4,80/5', label: 'Note moyenne voyageurs' },
+  { value: '4,82/5', label: 'Note moyenne voyageurs' },
 ];
 
 const faq = [
