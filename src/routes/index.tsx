@@ -12,7 +12,7 @@ import HowItWorksHomeSection from '@/components/home/HowItWorksHomeSection';
 import AreasSection from '@/components/home/AreasSection';
 import AboutHomeSection from '@/components/home/AboutHomeSection';
 import FinalCTASection from '@/components/home/FinalCTASection';
-import HomeFaqSection from '@/components/home/HomeFaqSection';
+
 
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
