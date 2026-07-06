@@ -52,7 +52,7 @@ const AboutHomeSection = () => {
               Nous nous appuyons également sur un réseau de partenaires locaux de confiance — décorateurs d'intérieur, artisans, agents immobiliers et autres professionnels de l'habitat — afin d'accompagner nos propriétaires bien au-delà de la simple gestion locative et de valoriser durablement leur bien.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              <strong className="font-playfair font-semibold text-elegant-black">Kyllian, fondateur</strong> — 3 ans d'expérience dans la location courte durée à Toulouse.
+              <strong className="font-playfair font-semibold text-elegant-black">Kyllian, fondateur</strong> — Diplômé de la Faculté de Droit de Toulouse, spécialisé en gestion locative courte durée.
             </p>
           </div>
         </div>
