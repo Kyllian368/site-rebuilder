@@ -20,6 +20,9 @@ import serviceCles from "@/assets/intendant/service-cles.jpg.asset.json";
 import serviceLinge from "@/assets/intendant/service-linge.jpg.asset.json";
 import serviceDeco from "@/assets/intendant/service-deco.jpg.asset.json";
 import serviceCuisine from "@/assets/intendant/service-cuisine.jpg.asset.json";
+import founderKyllian from "@/assets/intendant/founder-kyllian.jpg.asset.json";
+
+
 
 
 
@@ -46,6 +49,7 @@ export const ASSETS = {
   serviceLinge: serviceLinge.url,
   serviceDeco: serviceDeco.url,
   serviceCuisine: serviceCuisine.url,
+  founderPhoto: founderKyllian.url,
 };
 
 // Map original public paths -> CDN URLs (for direct substitution)
