@@ -297,19 +297,8 @@ function TarifsPage() {
             </div>
           </div>
 
-          {/* Bloc "idéale pour" */}
-          <div className="mt-10 max-w-2xl mx-auto text-center">
-            <h3 className="font-playfair text-xl text-elegant-black mb-4">
-              La formule sur mesure est idéale pour :
-            </h3>
-            <ul className="text-gray-600 space-y-2 text-left inline-block">
-              <li>• vous habitez à Toulouse et voulez juste le ménage</li>
-              <li>• vous gérez Airbnb mais pas Booking</li>
-              <li>• vous voulez seulement les check-in</li>
-              <li>• une résidence secondaire</li>
-              <li>• vous avez déjà votre femme de ménage</li>
-            </ul>
-          </div>
+
+
 
           {/* Détail des services inclus (garde pour référence globale) */}
           <p className="text-center text-sm text-gray-500 mt-10">

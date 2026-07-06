@@ -15,6 +15,13 @@ import pontNeufHd from "@/assets/intendant/toulouse-pont-neuf-hd.jpg.asset.json"
 import interieurSalon1 from "@/assets/intendant/interieur-salon-1.jpg.asset.json";
 import interieurSalon2 from "@/assets/intendant/interieur-salon-2.jpg.asset.json";
 import interieurChambre1 from "@/assets/intendant/interieur-chambre-1.jpg.asset.json";
+import serviceBureau from "@/assets/intendant/service-bureau.jpg.asset.json";
+import serviceCles from "@/assets/intendant/service-cles.jpg.asset.json";
+import serviceLinge from "@/assets/intendant/service-linge.jpg.asset.json";
+import serviceDeco from "@/assets/intendant/service-deco.jpg.asset.json";
+import serviceCuisine from "@/assets/intendant/service-cuisine.jpg.asset.json";
+
+
 
 export const ASSETS = {
   logo: logoSmall.url,
@@ -34,6 +41,11 @@ export const ASSETS = {
   interieurSalon1: interieurSalon1.url,
   interieurSalon2: interieurSalon2.url,
   interieurChambre1: interieurChambre1.url,
+  serviceBureau: serviceBureau.url,
+  serviceCles: serviceCles.url,
+  serviceLinge: serviceLinge.url,
+  serviceDeco: serviceDeco.url,
+  serviceCuisine: serviceCuisine.url,
 };
 
 // Map original public paths -> CDN URLs (for direct substitution)
