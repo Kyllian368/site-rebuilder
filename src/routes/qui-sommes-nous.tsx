@@ -117,10 +117,13 @@ function QuiSommesNousPage() {
 
             {/* Signature fondateur */}
             <div className="flex flex-col items-center mt-10">
-              <div className="w-14 h-14 rounded-full bg-elegant-black text-white flex items-center justify-center font-playfair text-2xl mb-4">
-                K
-              </div>
-              {/* TODO: remplacer par une photo du fondateur quand dispo */}
+              <img
+                src={ASSETS.founderPhoto}
+                alt="Kyllian, fondateur de L'Intendant"
+                className="w-16 h-16 rounded-full object-cover object-top grayscale mb-4"
+                loading="lazy"
+                decoding="async"
+              />
               <p className="text-gray-700 leading-relaxed">
                 <strong className="font-playfair font-semibold text-elegant-black">Kyllian, fondateur</strong>{' '}
                 — Diplômé de la Faculté de Droit de Toulouse, spécialisé en gestion locative courte durée.
