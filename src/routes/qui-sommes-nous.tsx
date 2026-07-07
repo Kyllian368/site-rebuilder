@@ -78,14 +78,14 @@ function QuiSommesNousPage() {
                 <h2 className="font-playfair text-3xl md:text-4xl font-bold text-elegant-black mb-6">
                   Une conciergerie toulousaine, à taille humaine
                 </h2>
-                <p className="text-lg text-gray-700 mb-5 leading-relaxed">
+                <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                   L'Intendant est né d'un constat simple.
                 </p>
-                <p className="text-gray-600 mb-5 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   En observant le marché de la location courte durée à Toulouse, j'ai réalisé que beaucoup de propriétaires étaient livrés à eux-mêmes : des plateformes à gérer, des voyageurs à accueillir, des tarifs rarement optimisés — et souvent, des prestataires peu réactifs censés s'en occuper.
                 </p>
-                <p className="text-gray-600 mb-5 leading-relaxed">
-                  Diplômé de la Faculté de Droit de Toulouse, j'ai voulu apporter une approche différente : rigoureuse, transparente, et vraiment orientée vers la performance du bien. Pas juste "gérer" un appartement, mais en tirer le meilleur rendement possible tout en offrant une expérience irréprochable aux voyageurs.
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  Issu d'un parcours en droit à la Faculté de Toulouse, j'ai voulu apporter une approche différente : rigoureuse, transparente, et vraiment orientée vers la performance du bien. Pas juste "gérer" un appartement, mais en tirer le meilleur rendement possible tout en offrant une expérience irréprochable aux voyageurs.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
                   Il y a près de deux ans, les premiers propriétaires m'ont fait confiance. Depuis, L'Intendant Conciergerie s'est construit sur cette même exigence : traiter chaque bien comme s'il était le nôtre.
@@ -96,9 +96,9 @@ function QuiSommesNousPage() {
         </section>
 
         {/* Citation */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-8 md:py-10 bg-white">
           <div className="container mx-auto px-6 text-center max-w-4xl">
-            <div className="h-px w-16 bg-[#941101] mx-auto mb-8" />
+            <div className="h-px w-16 bg-[#941101] mx-auto mb-4" />
             <blockquote className="font-playfair italic text-2xl md:text-3xl text-elegant-black leading-relaxed">
               « Traiter chaque bien comme s'il était le nôtre. »
             </blockquote>
@@ -106,27 +106,26 @@ function QuiSommesNousPage() {
         </section>
 
         {/* Section Suite */}
-        <section className="py-16 bg-white">
+        <section className="py-8 md:py-10 bg-white">
           <div className="container mx-auto px-6 max-w-3xl text-center">
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-4 leading-relaxed">
               Nous sommes une équipe locale, attachée à Toulouse et à sa région. Nous connaissons ses quartiers, ses rythmes, ses voyageurs — et nous mettons cette proximité au service des propriétaires qui nous font confiance. Pas de plateforme impersonnelle, pas de standard téléphonique : un interlocuteur qui vous connaît, vous et votre logement.
             </p>
-            <p className="text-gray-600 mb-10 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed">
               Nous nous appuyons également sur un réseau de partenaires locaux de confiance — décorateurs d'intérieur, artisans, agents immobiliers et autres professionnels de l'habitat — afin d'accompagner nos propriétaires bien au-delà de la simple gestion locative et de valoriser durablement leur bien.
             </p>
 
             {/* Signature fondateur */}
-            <div className="flex flex-col items-center mt-10">
+            <div className="flex flex-col items-center mt-8">
               <img
                 src={ASSETS.founderPhoto}
                 alt="Kyllian, fondateur de L'Intendant"
-                className="w-16 h-16 rounded-full object-cover object-top grayscale mb-4"
+                className="w-20 h-20 rounded-full object-cover object-top grayscale mb-4"
                 loading="lazy"
                 decoding="async"
               />
               <p className="text-gray-700 leading-relaxed">
-                <strong className="font-playfair font-semibold text-elegant-black">Kyllian, fondateur</strong>{' '}
-                — Diplômé de la Faculté de Droit de Toulouse, spécialisé en gestion locative courte durée.
+                <strong className="font-playfair font-semibold text-elegant-black">Kyllian Vacquier, fondateur</strong>
               </p>
             </div>
           </div>

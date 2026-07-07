@@ -223,7 +223,7 @@ function TarifsPage() {
                 ))}
               </ul>
               <div className="mt-auto">
-                <CtaButton label="Demander une estimation gratuite" variant="outline" />
+                <CtaButton label="Obtenir mon estimation gratuite" variant="outline" />
               </div>
             </div>
 
@@ -259,7 +259,7 @@ function TarifsPage() {
                 ))}
               </ul>
               <div className="mt-auto">
-                <CtaButton label="Demander une estimation gratuite" />
+                <CtaButton label="Obtenir mon estimation gratuite" />
               </div>
             </div>
 
@@ -313,8 +313,8 @@ function TarifsPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {steps.map((s) => (
-                <div key={s.n} className="group p-6 border border-transparent hover:border-[#941101] transition-colors duration-300">
-                  <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black group-hover:text-[#941101] transition-colors mb-4 leading-none">{s.n}</div>
+              <div key={s.n} className="group p-6 border border-transparent hover:border-[#941101] transition-colors duration-300">
+                  <div className="font-playfair text-6xl md:text-7xl font-normal text-elegant-black group-hover:text-[#941101] group-hover:-translate-x-1 transition-all duration-300 mb-4 leading-none">{s.n}</div>
                   <div className="h-px w-12 bg-gray-300 mb-5" />
                   <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">{s.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{s.text}</p>
