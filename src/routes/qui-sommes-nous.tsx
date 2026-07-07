@@ -96,7 +96,7 @@ function QuiSommesNousPage() {
         </section>
 
         {/* Citation */}
-        <section className="py-8 md:py-10 bg-white">
+        <section className="pt-4 pb-2 md:pt-6 md:pb-4 bg-white">
           <div className="container mx-auto px-6 text-center max-w-4xl">
             <div className="h-px w-16 bg-[#941101] mx-auto mb-4" />
             <blockquote className="font-playfair italic text-2xl md:text-3xl text-elegant-black leading-relaxed">
@@ -106,7 +106,7 @@ function QuiSommesNousPage() {
         </section>
 
         {/* Section Suite */}
-        <section className="py-8 md:py-10 bg-white">
+        <section className="pt-4 pb-10 md:pt-6 md:pb-12 bg-white">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <p className="text-gray-600 mb-4 leading-relaxed">
               Nous sommes une équipe locale, attachée à Toulouse et à sa région. Nous connaissons ses quartiers, ses rythmes, ses voyageurs — et nous mettons cette proximité au service des propriétaires qui nous font confiance. Pas de plateforme impersonnelle, pas de standard téléphonique : un interlocuteur qui vous connaît, vous et votre logement.
@@ -120,7 +120,7 @@ function QuiSommesNousPage() {
               <img
                 src={ASSETS.founderPhoto}
                 alt="Kyllian, fondateur de L'Intendant"
-                className="w-20 h-20 rounded-full object-cover object-top grayscale mb-4"
+                className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover object-top grayscale mb-4"
                 loading="lazy"
                 decoding="async"
               />
