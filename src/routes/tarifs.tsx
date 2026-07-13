@@ -198,7 +198,7 @@ function TarifsPage() {
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
           {/* Trois offres */}
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          <div ref={pricingRef} className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {/* Offre A - Gestion partielle */}
             <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
