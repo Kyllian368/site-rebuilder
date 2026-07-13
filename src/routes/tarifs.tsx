@@ -241,7 +241,7 @@ function TarifsPage() {
                 Gestion complète
               </p>
               <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">20%</span>
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{complete.formatted}%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
