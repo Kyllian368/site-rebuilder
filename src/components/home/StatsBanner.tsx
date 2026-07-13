@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ASSETS } from '@/lib/intendant-assets';
+
 
 const kpis = [
   { target: 90, decimals: 0, suffix: '%', label: "Taux d'occupation par bien" },
@@ -22,11 +22,11 @@ const StatsBanner = () => {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const duration = 1500;
+          const duration = 1000;
           const start = performance.now();
           const tick = (now: number) => {
             const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
+            const eased = p * p * (3 - 2 * p);
             setValues(kpis.map((k) => k.target * eased));
             if (p < 1) requestAnimationFrame(tick);
             else setValues(kpis.map((k) => k.target));
@@ -41,9 +41,7 @@ const StatsBanner = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-20 md:py-24 bg-elegant-black text-white">
-      <img src={ASSETS.pontNeufHd} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover grayscale" loading="lazy" decoding="async" />
-      <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
+    <section ref={ref} className="py-20 md:py-24 bg-elegant-black text-white">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8">
           {kpis.map((k, i) => (

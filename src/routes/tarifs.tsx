@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { ASSETS } from '@/lib/intendant-assets';
-import { useCountUp, useInView } from '@/hooks/useCountUp';
+import { useInView } from '@/hooks/useCountUp';
 
 export const Route = createFileRoute('/tarifs')({
   head: () => ({
@@ -157,8 +157,6 @@ function TarifsPage() {
   }, []);
 
   const { ref: pricingRef, inView: pricingInView } = useInView<HTMLDivElement>(0.2);
-  const partiel = useCountUp(10, pricingInView, { decimals: 0 });
-  const complete = useCountUp(20, pricingInView, { decimals: 0 });
 
   return (
     <div className="min-h-screen bg-white text-elegant-black">
@@ -204,8 +202,11 @@ function TarifsPage() {
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion partielle
               </p>
-              <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{partiel.formatted}%</span>
+              <div
+                className="mb-4 transition-all duration-700"
+                style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '0ms' }}
+              >
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">10%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
@@ -240,8 +241,11 @@ function TarifsPage() {
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion complète
               </p>
-              <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{complete.formatted}%</span>
+              <div
+                className="mb-4 transition-all duration-700"
+                style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '120ms' }}
+              >
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">20%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
@@ -274,8 +278,8 @@ function TarifsPage() {
                 Gestion sur mesure
               </p>
               <div
-                className="mb-4 transition-opacity duration-700"
-                style={{ opacity: pricingInView ? 1 : 0 }}
+                className="mb-4 transition-all duration-700"
+                style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '240ms' }}
               >
                 <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
