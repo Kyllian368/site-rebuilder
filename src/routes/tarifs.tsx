@@ -157,8 +157,6 @@ function TarifsPage() {
   }, []);
 
   const { ref: pricingRef, inView: pricingInView } = useInView<HTMLDivElement>(0.2);
-  const partiel = useCountUp(10, pricingInView, { decimals: 0 });
-  const complete = useCountUp(20, pricingInView, { decimals: 0 });
 
   return (
     <div className="min-h-screen bg-white text-elegant-black">
