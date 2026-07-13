@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ASSETS } from '@/lib/intendant-assets';
+
 
 const kpis = [
   { target: 90, decimals: 0, suffix: '%', label: "Taux d'occupation par bien" },
