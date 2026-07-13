@@ -51,6 +51,7 @@ export const ASSETS = {
   serviceDeco: serviceDeco.url,
   serviceCuisine: serviceCuisine.url,
   founderPhoto: founderKyllian.url,
+  saintSerninDany: saintSerninDany.url,
 };
 
 // Map original public paths -> CDN URLs (for direct substitution)
