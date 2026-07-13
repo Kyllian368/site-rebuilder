@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { ASSETS } from '@/lib/intendant-assets';
+import { useCountUp, useInView } from '@/hooks/useCountUp';
 
 export const Route = createFileRoute('/tarifs')({
   head: () => ({
@@ -155,6 +156,10 @@ function TarifsPage() {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, []);
 
+  const { ref: pricingRef, inView: pricingInView } = useInView<HTMLDivElement>(0.2);
+  const partiel = useCountUp(10, pricingInView, { decimals: 0 });
+  const complete = useCountUp(20, pricingInView, { decimals: 0 });
+
   return (
     <div className="min-h-screen bg-white text-elegant-black">
       <Header />
@@ -193,14 +198,14 @@ function TarifsPage() {
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
           {/* Trois offres */}
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          <div ref={pricingRef} className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {/* Offre A - Gestion partielle */}
             <div className="bg-white p-8 md:p-10 border border-gray-200 flex flex-col text-center">
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion partielle
               </p>
               <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">10%</span>
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{partiel.formatted}%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
@@ -236,7 +241,7 @@ function TarifsPage() {
                 Gestion complète
               </p>
               <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">20%</span>
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{complete.formatted}%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
@@ -268,7 +273,10 @@ function TarifsPage() {
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion sur mesure
               </p>
-              <div className="mb-4">
+              <div
+                className="mb-4 transition-opacity duration-700"
+                style={{ opacity: pricingInView ? 1 : 0 }}
+              >
                 <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   À partir de vos besoins
