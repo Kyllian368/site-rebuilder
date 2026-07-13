@@ -22,11 +22,11 @@ const StatsBanner = () => {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const duration = 1500;
+          const duration = 1000;
           const start = performance.now();
           const tick = (now: number) => {
             const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
+            const eased = p * p * (3 - 2 * p);
             setValues(kpis.map((k) => k.target * eased));
             if (p < 1) requestAnimationFrame(tick);
             else setValues(kpis.map((k) => k.target));
