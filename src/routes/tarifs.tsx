@@ -202,8 +202,11 @@ function TarifsPage() {
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion partielle
               </p>
-              <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{partiel.formatted}%</span>
+              <div
+                className="mb-4 transition-all duration-700"
+                style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '0ms' }}
+              >
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">10%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
