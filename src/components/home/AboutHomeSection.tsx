@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from '@tanstack/react-router';
 import { ASSETS } from '@/lib/intendant-assets';
 
 const AboutHomeSection = () => {
