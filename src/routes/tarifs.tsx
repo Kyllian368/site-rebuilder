@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { ASSETS } from '@/lib/intendant-assets';
+import { useCountUp, useInView } from '@/hooks/useCountUp';
 
 export const Route = createFileRoute('/tarifs')({
   head: () => ({
