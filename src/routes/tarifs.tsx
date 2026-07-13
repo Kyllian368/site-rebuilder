@@ -156,6 +156,10 @@ function TarifsPage() {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, []);
 
+  const { ref: pricingRef, inView: pricingInView } = useInView<HTMLDivElement>(0.2);
+  const partiel = useCountUp(10, pricingInView, { decimals: 0 });
+  const complete = useCountUp(20, pricingInView, { decimals: 0 });
+
   return (
     <div className="min-h-screen bg-white text-elegant-black">
       <Header />
