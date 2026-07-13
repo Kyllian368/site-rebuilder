@@ -120,7 +120,7 @@ function QuiSommesNousPage() {
               <img
                 src={ASSETS.founderPhoto}
                 alt="Kyllian, fondateur de L'Intendant"
-                className="w-24 h-24 rounded-full object-cover object-top grayscale mb-4"
+                className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover object-top grayscale mb-4"
                 loading="lazy"
                 decoding="async"
               />
