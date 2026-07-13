@@ -51,7 +51,7 @@ const AboutHomeSection = () => {
               <img
                 src={ASSETS.founderPhoto}
                 alt="Kyllian, fondateur de L'Intendant"
-                className="w-16 h-16 rounded-full object-cover object-top grayscale flex-shrink-0"
+                className="w-24 h-24 rounded-full object-cover object-top grayscale flex-shrink-0"
                 loading="lazy"
                 decoding="async"
               />
