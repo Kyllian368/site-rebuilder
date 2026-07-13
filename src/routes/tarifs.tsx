@@ -273,7 +273,10 @@ function TarifsPage() {
               <p className="text-xs uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
                 Gestion sur mesure
               </p>
-              <div className="mb-4">
+              <div
+                className="mb-4 transition-opacity duration-700"
+                style={{ opacity: pricingInView ? 1 : 0 }}
+              >
                 <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   À partir de vos besoins
