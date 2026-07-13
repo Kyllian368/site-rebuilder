@@ -205,7 +205,7 @@ function TarifsPage() {
                 Gestion partielle
               </p>
               <div className="mb-4">
-                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black">10%</span>
+                <span className="font-playfair text-6xl md:text-7xl font-bold text-elegant-black tabular-nums">{partiel.formatted}%</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   de commission sur les revenus générés
                 </p>
