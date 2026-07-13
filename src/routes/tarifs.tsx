@@ -278,8 +278,8 @@ function TarifsPage() {
                 Gestion sur mesure
               </p>
               <div
-                className="mb-4 transition-opacity duration-700"
-                style={{ opacity: pricingInView ? 1 : 0 }}
+                className="mb-4 transition-all duration-700"
+                style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '240ms' }}
               >
                 <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
