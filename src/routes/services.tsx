@@ -62,42 +62,34 @@ const services = [
   {
     title: "Création & optimisation d'annonces",
     text: "Nous créons ou reprenons vos annonces sur toutes les plateformes (Airbnb, Booking, Abritel, Expedia). Photos professionnelles, descriptions optimisées pour le référencement, mise en valeur de votre bien pour maximiser les réservations.",
-    img: ASSETS.serviceBureau,
   },
   {
     title: "Tarification dynamique",
     text: "Nos outils ajustent vos tarifs quotidiennement selon la saisonnalité, les événements locaux (Fête de la Violette, match du Stade Toulousain, Toulouse Tech Week) et la concurrence. Résultat : un taux d'occupation optimisé et des revenus maximisés.",
-    img: ASSETS.interieurSalon2,
   },
   {
     title: "Accueil voyageurs 24/7",
     text: "Check-in et check-out gérés 7j/7, remise des clés en personne ou via boîte à clés sécurisée, état des lieux systématique. Vos voyageurs sont accueillis avec professionnalisme à toute heure.",
-    img: ASSETS.serviceCles,
   },
   {
     title: "Ménage hôtelier & linge",
     text: "Protocole de ménage de niveau hôtelier après chaque départ. Linge de maison et serviettes fournis, lavés et repassés. Contrôle qualité avant chaque arrivée pour garantir une expérience 5 étoiles.",
-    img: ASSETS.serviceLinge,
   },
   {
     title: "Communication voyageurs",
     text: "Réponses en moins d'une heure, avant, pendant et après le séjour. Gestion des imprévus, assistance multilingue, suivi des avis pour maintenir une note d'excellence sur toutes les plateformes.",
-    img: ASSETS.interieurSalon1,
   },
   {
     title: "Photos au rendu professionnel",
     text: "Des visuels soignés, pensés pour donner envie de réserver : cadrage, lumière et mise en scène qui subliment votre bien et le font ressortir parmi les annonces. Un logement mis en valeur, c'est directement plus de clics — et plus de réservations.",
-    img: ASSETS.interieurChambre1,
   },
   {
     title: "Home staging & conseil déco",
     text: "Nous vous conseillons sur l'aménagement et la décoration de votre bien pour maximiser son attractivité auprès des voyageurs. Du choix du linge de lit au positionnement du mobilier, chaque détail est pensé pour une expérience 5 étoiles et des avis qui boostent vos réservations.",
-    img: ASSETS.serviceDeco,
   },
   {
     title: "Suivi administratif & maintenance",
     text: "Gestion des paiements, résolution des litiges, déclaration de la taxe de séjour, coordination des réparations avec des prestataires qualifiés. Reporting mensuel détaillé de vos revenus.",
-    img: ASSETS.serviceCuisine,
   },
 ];
 
@@ -132,32 +124,24 @@ function ServicesPage() {
           </div>
         </section>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl pt-16">
-          {services.map((s, i) => (
-            <div
-              key={i}
-              className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center py-12 md:py-16 border-t border-gray-100 first:border-t-0 first:pt-0"
-            >
-              <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  className="w-full h-64 md:h-80 object-cover grayscale rounded-sm shadow-md"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-3 font-medium">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-elegant-black mb-4">
-                  {s.title}
-                </h2>
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl pt-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {services.map((s, i) => (
+              <div
+                key={i}
+                className="group bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:border-[#941101] transition-colors duration-300"
+              >
+                <span
+                  className={`block text-2xl mb-5 leading-none transition-all duration-300 group-hover:text-[#941101] group-hover:-translate-x-1 ${i % 2 === 0 ? 'text-[#941101]' : 'text-elegant-black'}`}
+                  aria-hidden="true"
+                >
+                  ✦
+                </span>
+                <h3 className="font-playfair text-xl font-semibold text-elegant-black mb-3">{s.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{s.text}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
 
           {/* FAQ */}
           <section className="mt-20 max-w-3xl mx-auto">
