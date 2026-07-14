@@ -22,8 +22,8 @@ const AboutHomeSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
             <img
-              src={ASSETS.interieurSalon1}
-              alt="Intérieur soigné d'un logement géré par L'Intendant"
+              src={ASSETS.rueBrique}
+              alt="Façades de brique de Toulouse, la ville rose"
               className="w-full h-auto rounded-sm shadow-lg grayscale"
               loading="lazy"
               decoding="async"

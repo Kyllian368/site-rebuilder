@@ -165,7 +165,7 @@ function TarifsPage() {
         {/* Hero photo */}
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
           <img
-            src={ASSETS.interieurSalon2}
+            src={ASSETS.saintSerninDany}
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover grayscale"
@@ -281,7 +281,7 @@ function TarifsPage() {
                 className="mb-4 transition-all duration-700"
                 style={{ opacity: pricingInView ? 1 : 0, transform: pricingInView ? 'translateY(0)' : 'translateY(12px)', transitionDelay: '240ms' }}
               >
-                <span className="font-playfair text-5xl md:text-6xl font-bold text-elegant-black">Sur mesure</span>
+                <span className="font-playfair text-4xl md:text-5xl font-bold text-elegant-black">Sur mesure</span>
                 <p className="text-sm md:text-base text-gray-600 mt-2">
                   À partir de vos besoins
                 </p>

@@ -104,7 +104,7 @@ function ServicesPage() {
       <main className="pb-20">
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
           <img
-            src={ASSETS.pontNeufHd}
+            src={ASSETS.rueDaurade}
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover grayscale"
