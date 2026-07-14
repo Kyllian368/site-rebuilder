@@ -23,6 +23,8 @@ import serviceCuisine from "@/assets/intendant/service-cuisine.jpg.asset.json";
 import founderKyllian from "@/assets/intendant/founder-kyllian.jpg.asset.json";
 import saintSerninDany from "@/assets/intendant/toulouse-saint-sernin-dany.jpg.asset.json";
 import domeGrave from "@/assets/intendant/toulouse-dome-grave.jpg.asset.json";
+import rueBrique from "@/assets/intendant/toulouse-rue-brique.jpg.asset.json";
+import rueDaurade from "@/assets/intendant/toulouse-rue-daurade.jpg.asset.json";
 
 
 
