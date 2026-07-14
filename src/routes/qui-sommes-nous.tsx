@@ -39,7 +39,7 @@ function QuiSommesNousPage() {
         {/* Hero */}
         <section className="relative overflow-hidden h-[55vh] flex items-center justify-center mt-20">
           <img
-            src={ASSETS.interieurSalon1}
+            src={ASSETS.domeGrave}
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover grayscale"

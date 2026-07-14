@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import { ASSETS } from '@/lib/intendant-assets';
 
 const kpis = [
   { target: 90, decimals: 0, suffix: '%', label: "Taux d'occupation par bien" },
@@ -41,7 +41,9 @@ const StatsBanner = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 md:py-24 bg-elegant-black text-white">
+    <section ref={ref} className="relative overflow-hidden py-20 md:py-24 bg-elegant-black text-white">
+      <img src={ASSETS.capitoleHd} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover grayscale" loading="lazy" decoding="async" />
+      <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8">
           {kpis.map((k, i) => (
