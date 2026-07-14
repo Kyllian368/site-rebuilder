@@ -165,7 +165,7 @@ function TarifsPage() {
         {/* Hero photo */}
         <section className="relative overflow-hidden h-[50vh] flex items-center justify-center mt-20">
           <img
-            src={ASSETS.interieurSalon2}
+            src={ASSETS.saintSerninDany}
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover grayscale"
