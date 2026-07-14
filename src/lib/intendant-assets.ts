@@ -56,6 +56,8 @@ export const ASSETS = {
   founderPhoto: founderKyllian.url,
   saintSerninDany: saintSerninDany.url,
   domeGrave: domeGrave.url,
+  rueBrique: rueBrique.url,
+  rueDaurade: rueDaurade.url,
 };
 
 // Map original public paths -> CDN URLs (for direct substitution)
